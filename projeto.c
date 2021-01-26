@@ -8,43 +8,63 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <stdio.h>
+#include <stdlib.h>
 
-void menuSobre(void);
+/// 
+/// Assinaturas das funções
+///
+void menuPrincipal(void);
+void telaSobre(void);
+void menuAluno(void);
+void menuProfessor(void);
+void menuTurma(void);
+void telaCadastrarAluno(void);
 
+
+///
+/// Programa Principal
+///
 int main(void) {
-    menuSobre();
+    telaSobre();
+    menuPrincipal();
+    menuAluno();
+    menuProfessor();
+    menuTurma();
+    telaCadastrarAluno();
     return 0;
-
 }
 
 
-void menuSobre(void) {
-    printf("\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///             Universidade Federal do Rio Grande do Norte                 ///\n");
-    printf("///                 Centro de Ensino Superior do Seridó                     ///\n");
-    printf("///               Departamento de Computação e Tecnologia                   ///\n");
-    printf("///                  Disciplina DCT1106 -- Programação                      ///\n");
-    printf("///               Projeto de Controle de Cheques Recebidos                  ///\n");
-    printf("///                  Developed by  @jeisonoliver, 2021                      ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///      = = = = = Sistema de Controle de Cheques Recebidos = = = = =       ///\n");
-    printf("///                                                                         ///\n");
-    printf("///   Programa feito para a disciplina DCT1106 – Programação. O presente    ///\n");
-    printf("///   programa tem o objetivo de iniciar os trabalhos referentes à          ///\n");
-    printf("///   disciplina de programação, este programa é o ponta pé inicial para o  ///\n");
-    printf("///   projeto que terá duração de 15 semanas, o projeto de nome SIG-Check   ///\n");
-    printf("///   tem como objetivo realizar o cadastro e o acompanhamento de cheques   ///\n");
-    printf("///   pré-datados, auxiliando o controle financeiro da empresa.             ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///               DESENVOLVEDOR: JEISON DE OLIVEIRA AZEVEDO                 ///\n");
-    printf("///                    EMAIL: jeisonjs42@gmail.com                          ///\n");
-    printf("///                  DISCIPLINA: DCT1106 – PROGRAMAÇÃO                      ///\n");
-    printf("///                 PROFESSOR:  FLAVIUS DA LUZ E GORGONIO                   ///\n");
-    printf("///                          SEMESTRE: 2020.2                               ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
+void menuPrincipal(void) {
+    system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///             [|||||||||||||||||||||||||||||||||||||||||||]             ///\n");
+	printf("///             [ Sistema de Controle de Cheques Recebidos  ]             ///\n");
+	printf("///             [            SISTEMA SIG-CHECK              ]             ///\n");
+	printf("///             [|||||||||||||||||||||||||||||||||||||||||||]             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                Developed by  @jeisonoliver - Jan, 2021                ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///             [|||||||||||||||||||||||||||||||||||||||||||]             ///\n");
+	printf("///             [               MENU PRINCIPAL              ]             ///\n");
+	printf("///             [|||||||||||||||||||||||||||||||||||||||||||]             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///             1. Módulo Recebimento de Cheque                           ///\n");
+	printf("///             2. Módulo Desconto de Cheque                              ///\n");
+	printf("///             3. Módulo clientes                                        ///\n");
+	printf("///             4. Informações sobre o sistema                            ///\n");
+	printf("///             0. Encerra o programa                                     ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///             Escolha a opção desejada:                                 ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
 }
