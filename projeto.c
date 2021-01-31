@@ -4,7 +4,7 @@
 ///               Departamento de Computação e Tecnologia                   ///
 ///                  Disciplina DCT1106 -- Programação                      ///
 ///                  Projeto Sistema de Gestão Escolar                      ///
-///                Developed by  @jeisonoliver -Sep, 2021                   ///
+///                Developed by  @jeisonoliver - sep, 2021                  ///
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <stdio.h>
