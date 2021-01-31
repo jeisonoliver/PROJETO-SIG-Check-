@@ -15,7 +15,9 @@
 ///
 void menuPrincipal(void);
 void telaSobre(void);
-
+void moduloRecebimento(void);
+void moduloDesconto(void);
+void moduloCliente(void);
 
 ///
 /// Programa Principal
@@ -23,6 +25,9 @@ void telaSobre(void);
 int main(void) {
 	menuPrincipal();
     telaSobre();
+	moduloRecebimento();
+	moduloDesconto();
+	moduloCliente();
     return 0;
 }
 
@@ -91,5 +96,106 @@ void telaSobre(void) {
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+void moduloRecebimento(void) {
+    system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///             ||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///             | Sistema de Controle de Cheques Recebidos |              ///\n");
+	printf("///             |            SISTEMA SIG-CHECK             |              ///\n");
+	printf("///             ||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                Developed by  @jeisonoliver - Jan, 2021                ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///            |           Menu receber cheque             |              ///\n");
+	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           1. Cadastrar um novo cheque recebido.                       ///\n");
+	printf("///           2. Pesquisar os dados de um cheque recebido.                ///\n");
+	printf("///           3. Atualizar o cadastro de um cheque.                       ///\n");
+	printf("///           4. Excluir um cheque do sistema.                            ///\n");
+	printf("///           0. Voltar ao menu anterior                                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Escolha a opção desejada:                                   ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+
+void moduloDesconto(void) {
+    system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///             ||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///             | Sistema de Controle de Cheques Recebidos |              ///\n");
+	printf("///             |            SISTEMA SIG-CHECK             |              ///\n");
+	printf("///             ||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                Developed by  @jeisonoliver - Jan, 2021                ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///            |        Menu de desconto de cheque         |              ///\n");
+	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           1. descontar um cheque.                                     ///\n");
+	printf("///           2. Pesquisar os dados de um cheque para descontar.          ///\n");
+	printf("///           0. Voltar ao menu anterior                                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Escolha a opção desejada:                                   ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+
+void moduloCliente(void) {
+    system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///             ||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///             | Sistema de Controle de Cheques Recebidos |              ///\n");
+	printf("///             |            SISTEMA SIG-CHECK             |              ///\n");
+	printf("///             ||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                Developed by  @jeisonoliver - Jan, 2021                ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///            |        Menu de desconto de cheque         |              ///\n");
+	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           1. Cadastrar um novo cliente.                               ///\n");
+	printf("///           2. Pesquisar os dados de um cliente.                        ///\n");
+	printf("///           3. Atualizar o cadastro de um cliente.                      ///\n");
+	printf("///           4. Excluir um cliente do sistema.                           ///\n");
+	printf("///           0. Voltar ao menu anterior                                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Escolha a opção desejada:                                   ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
