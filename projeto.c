@@ -29,6 +29,7 @@ void telaExcluirChequeEnviado(void);
 void telaCadastrarCliente(void);
 void telaPesquisarCliente(void);
 void telaAlterarCliente(void);
+void telaExcluirCliente(void);
 
 ///
 /// Programa Principal
@@ -50,6 +51,7 @@ int main(void) {
 	telaCadastrarCliente();
 	telaPesquisarCliente();
 	telaAlterarCliente();
+	telaExcluirCliente();
     return 0;
 }
 
@@ -564,7 +566,7 @@ void telaAlterarCliente(void) {
 	getchar();
 }
 
-void telaEcluirCliente(void) {
+void telaExcluirCliente(void) {
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
