@@ -28,6 +28,7 @@ void telaAlterarChequeEnviado(void);
 void telaExcluirChequeEnviado(void);
 void telaCadastrarCliente(void);
 void telaPesquisarCliente(void);
+void telaAlterarCliente(void);
 
 ///
 /// Programa Principal
@@ -48,6 +49,7 @@ int main(void) {
 	telaExcluirChequeEnviado();
 	telaCadastrarCliente();
 	telaPesquisarCliente();
+	telaAlterarCliente();
     return 0;
 }
 
@@ -523,6 +525,68 @@ void telaPesquisarCliente(void) {
 	printf("///               2. E-mail:                                              ///\n");
 	printf("///               3. Data de Nascimento:                                  ///\n");
 	printf("///               4. Celular:                                             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+void telaAlterarCliente(void) {
+    system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///                ||||||||||||||||||||||||||||||||||||||||||||           ///\n");
+	printf("///                | Sistema de Controle de Cheques Recebidos |           ///\n");
+	printf("///                |            SISTEMA SIG-CHECK             |           ///\n");
+	printf("///                ||||||||||||||||||||||||||||||||||||||||||||           ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                Developed by  @jeisonoliver - Jan, 2021                ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
+	printf("///               |     ALTERAR DADOS DE UM CLIENTE          |            ///\n");
+	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
+	printf("///                                                                       ///\n");
+	printf("///               INFORME O NUMERO REFERENTE AO DADO QUE DESEJA ALTERAR:  ///\n");
+	printf("///               1. Nome:                                                ///\n");
+	printf("///               2. E-mail:                                              ///\n");
+	printf("///               3. Data de Nascimento:                                  ///\n");
+	printf("///               4. Celular:                                             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+void telaEcluirCliente(void) {
+    system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///                ||||||||||||||||||||||||||||||||||||||||||||           ///\n");
+	printf("///                | Sistema de Controle de Cheques Recebidos |           ///\n");
+	printf("///                |            SISTEMA SIG-CHECK             |           ///\n");
+	printf("///                ||||||||||||||||||||||||||||||||||||||||||||           ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                Developed by  @jeisonoliver - Jan, 2021                ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
+	printf("///               |     ALTERAR DADOS DE UM CLIENTE          |            ///\n");
+	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
+	printf("///                                                                       ///\n");
+	printf("///               INFORME OS DADOS DO CLIENTE QUE DESEJA EXCLUIR:         ///\n");
+	printf("///               Nome:                                                   ///\n");
+	printf("///               E-mail:                                                 ///\n");
+	printf("///               Data de Nascimento:                                     ///\n");
+	printf("///               Celular:                                                ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
