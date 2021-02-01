@@ -138,7 +138,7 @@ void moduloRecebimento(void) {
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
-	printf("///            |           Menu receber cheque             |              ///\n");
+	printf("///            |           MENU RECEBER CHEQUE             |              ///\n");
 	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           1. Cadastrar um novo cheque recebido.                       ///\n");
@@ -172,7 +172,7 @@ void moduloEnvio(void) {
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
-	printf("///            |           Menu Enviar cheque              |              ///\n");
+	printf("///            |           MENU ENVIAR CHEQUE              |              ///\n");
 	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           1. Cadastrar um novo cheque enviado.                        ///\n");
@@ -206,7 +206,7 @@ void moduloCliente(void) {
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
-	printf("///            |          Menu Cadastrar Cliente           |              ///\n");
+	printf("///            |          MENU CADASTRAR CLIENTE           |              ///\n");
 	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           1. Cadastrar um novo cliente.                               ///\n");
@@ -581,7 +581,7 @@ void telaExcluirCliente(void) {
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
-	printf("///               |     ALTERAR DADOS DE UM CLIENTE          |            ///\n");
+	printf("///               |     EXCLUIR DADOS DE UM CLIENTE          |            ///\n");
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///                                                                       ///\n");
 	printf("///               INFORME OS DADOS DO CLIENTE QUE DESEJA EXCLUIR:         ///\n");
