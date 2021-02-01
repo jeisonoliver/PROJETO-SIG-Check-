@@ -26,6 +26,8 @@ void telaCadastrarChequeEnviado(void);
 void telaConsultarChequeEnviado(void);
 void telaAlterarChequeEnviado(void);
 void telaExcluirChequeEnviado(void);
+void telaCadastrarCliente(void);
+void telaPesquisarCliente(void);
 
 ///
 /// Programa Principal
@@ -44,6 +46,8 @@ int main(void) {
 	telaConsultarChequeEnviado();
 	telaAlterarChequeEnviado();
 	telaExcluirChequeEnviado();
+	telaCadastrarCliente();
+	telaPesquisarCliente();
     return 0;
 }
 
@@ -198,7 +202,7 @@ void moduloCliente(void) {
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
-	printf("///            |        Menu de desconto de cheque         |              ///\n");
+	printf("///            |          Menu Cadastrar Cliente           |              ///\n");
 	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           1. Cadastrar um novo cliente.                               ///\n");
@@ -479,15 +483,46 @@ void telaCadastrarCliente(void) {
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
-	printf("///             ||||||||||||||||||||||||||||||||||||||||||||              ///\n");
-	printf("///             |           CADASTRAR CLIENTE              |              ///\n");
-	printf("///             ||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
+	printf("///               |           CADASTRAR CLIENTE              |            ///\n");
+	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Nome:                                                       ///\n");
-	printf("///           E-mail:                                                     ///\n");
-	printf("///           Data de Nascimento:                                         ///\n");
-	printf("///           Celular:                                                    ///\n");
+	printf("///               Nome:                                                   ///\n");
+	printf("///               E-mail:                                                 ///\n");
+	printf("///               Data de Nascimento:                                     ///\n");
+	printf("///               Celular:                                                ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+void telaPesquisarCliente(void) {
+    system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///                ||||||||||||||||||||||||||||||||||||||||||||           ///\n");
+	printf("///                | Sistema de Controle de Cheques Recebidos |           ///\n");
+	printf("///                |            SISTEMA SIG-CHECK             |           ///\n");
+	printf("///                ||||||||||||||||||||||||||||||||||||||||||||           ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                Developed by  @jeisonoliver - Jan, 2021                ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
+	printf("///               |     PESQUISAR DADOS DE UM CLIENTE        |            ///\n");
+	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
+	printf("///                                                                       ///\n");
+	printf("///               INFORME O NUMERO REFERENTE AO DADO QUE DESEJA SABER:    ///\n");
+	printf("///               1. Nome:                                                ///\n");
+	printf("///               2. E-mail:                                              ///\n");
+	printf("///               3. Data de Nascimento:                                  ///\n");
+	printf("///               4. Celular:                                             ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
