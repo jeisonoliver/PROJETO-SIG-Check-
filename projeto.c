@@ -18,6 +18,8 @@ void telaSobre(void);
 void moduloRecebimento(void);
 void moduloDesconto(void);
 void moduloCliente(void);
+void telaCadastrarCheque(void);
+void telaConsultarCheque(void);
 
 ///
 /// Programa Principal
@@ -28,6 +30,8 @@ int main(void) {
 	moduloRecebimento();
 	moduloDesconto();
 	moduloCliente();
+	telaCadastrarCheque();
+	telaConsultarCheque();
     return 0;
 }
 
@@ -197,5 +201,68 @@ void moduloCliente(void) {
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+void telaCadastrarCheque(void) {
+    system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///             ||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///             | Sistema de Controle de Cheques Recebidos |              ///\n");
+	printf("///             |            SISTEMA SIG-CHECK             |              ///\n");
+	printf("///             ||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                Developed by  @flgorgonio - Jan, 2021                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
+	printf("///            |            CADASTRAR CHEQUE              |               ///\n");
+	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
+	printf("///                                                                       ///\n");
+	printf("///            Numero do cheque:                                          ///\n");
+	printf("///            Banco:                                                     ///\n");
+	printf("///            Agencia:                                                   ///\n");
+	printf("///            Conta:                                                     ///\n");
+	printf("///            Valor do cheque:                                           ///\n");
+	printf("///            Data de Deposito:                                          ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+
+void telaConsultarCheque(void) {
+    system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///             ||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///             | Sistema de Controle de Cheques Recebidos |              ///\n");
+	printf("///             |            SISTEMA SIG-CHECK             |              ///\n");
+	printf("///             ||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                Developed by  @flgorgonio - Jan, 2021                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
+	printf("///            |            CONSULTAR CHEQUE              |               ///\n");
+	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
+	printf("///            INFORME O NUMERO REFERENTE AO QUE DESEJA CONSULTAR:        ///\n");
+	printf("///            1.Numero do cheque:                                        ///\n");
+	printf("///            2.Banco:                                                   ///\n");
+	printf("///            3.Agencia:                                                 ///\n");
+	printf("///            4.Conta:                                                   ///\n");
+	printf("///            5.Valor do cheque:                                         ///\n");
+	printf("///            6.Data de Deposito:                                        ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
