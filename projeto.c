@@ -13,11 +13,11 @@
 /// 
 /// Assinaturas das funções
 ///
-void menuPrincipal(void);
+char menuPrincipal(void);
 void telaSobre(void);
-void moduloRecebimento(void);
-void moduloEnvio(void);
-void moduloCliente(void);
+char moduloRecebimento(void);
+char moduloEnvio(void);
+char moduloCliente(void);
 void telaCadastrarChequeRecebido(void);
 void telaConsultarChequeRecebido(void);
 void telaAlterarChequeRecebido(void);
@@ -35,11 +35,13 @@ void telaExcluirCliente(void);
 /// Programa Principal
 ///
 int main(void) {
-	menuPrincipal();
-    telaSobre();
-	moduloRecebimento();
-	moduloEnvio();
-	moduloCliente();
+    char opcao;
+
+	telaSobre();
+	opcao = menuPrincipal();
+	opcao = moduloRecebimento();
+	opcao = moduloEnvio(); 
+	opcao = moduloCliente();
 	telaCadastrarChequeRecebido();
 	telaConsultarChequeRecebido();
 	telaAlterarChequeRecebido();
@@ -56,7 +58,8 @@ int main(void) {
 }
 
 
-void menuPrincipal(void) {
+char menuPrincipal(void) {
+	char op;
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -81,13 +84,16 @@ void menuPrincipal(void) {
 	printf("///             0. Encerra o programa                                     ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
-	printf("///             Escolha a opção desejada:                                 ///\n");
+	printf("///             Escolha a opção desejada: ");
+	scanf("%c", &op);
+	getchar();
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return op;
 }
 
 void telaSobre(void) {
@@ -123,7 +129,8 @@ void telaSobre(void) {
 	getchar();
 }
 
-void moduloRecebimento(void) {
+char moduloRecebimento(void) {
+	char op;
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -147,17 +154,21 @@ void moduloRecebimento(void) {
 	printf("///           4. Excluir um cheque do sistema.                            ///\n");
 	printf("///           0. Voltar ao menu anterior                                  ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada:                                   ///\n");
+	printf("///           Escolha a opção desejada: ");
+	scanf("%c", &op);
+	getchar();
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return op;
 }
 
 
-void moduloEnvio(void) {
+char moduloEnvio(void) {
+	char op;
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -181,17 +192,21 @@ void moduloEnvio(void) {
 	printf("///           4. Excluir um cheque do sistema.                            ///\n");
 	printf("///           0. Voltar ao menu anterior                                  ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada:                                   ///\n");
+	printf("///           Escolha a opção desejada: ");
+	scanf("%c", &op);
+	getchar();
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return op;
 }
 
 
-void moduloCliente(void) {
+char moduloCliente(void) {
+	char op;
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -215,13 +230,16 @@ void moduloCliente(void) {
 	printf("///           4. Excluir um cliente do sistema.                           ///\n");
 	printf("///           0. Voltar ao menu anterior                                  ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada:                                   ///\n");
+	printf("///           Escolha a opção desejada: ");
+	scanf("%c", &op);
+	getchar();
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return op;
 }
 
 void telaCadastrarChequeRecebido(void) {
