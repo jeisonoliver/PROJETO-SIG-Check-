@@ -117,8 +117,8 @@ void telaSobre(void) {
 	printf("///          |||||||||||||||||||||||||||||||||||||||||||||||||||          ///\n");
 	printf("///                                                                       ///\n");
 	printf("/// Programa feito para a disciplina DCT1106 - Programação. O presente    ///\n");
-	printf("/// programa tem o objetivo de iniciar os trabalhos referentes à          ///\n");
-	printf("/// disciplina de programação, este programa é reerente a semana 2 do     ///\n");
+	printf("/// programa tem o objetivo de dar continuidade trabalhos referentes à    ///\n");
+	printf("/// disciplina de programação, este programa é reerente a semana 3 do     ///\n");
 	printf("/// projeto que terá duração de 15 semanas. O projeto de nome SIG-Check   ///\n");
 	printf("/// tem como objetivo realizar o cadastro e o acompanhamento de cheques   ///\n");
  	printf("/// pré-datados, auxiliando o controle financeiro da empresa.             ///\n");
@@ -221,7 +221,7 @@ char moduloCliente(void) {
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
-	printf("///            |          MENU CADASTRAR CLIENTE           |              ///\n");
+	printf("///            |             MODULO CLIENTE                |              ///\n");
 	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           1. Cadastrar um novo cliente.                               ///\n");
@@ -243,6 +243,12 @@ char moduloCliente(void) {
 }
 
 void telaCadastrarChequeRecebido(void) {
+	char nChequeRecebido[4];
+	char nomeBanco[30];
+	char agencia[10];
+	char numeroConta[10];
+	char valor[15];
+	char data[10];
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -260,12 +266,24 @@ void telaCadastrarChequeRecebido(void) {
 	printf("///            |       CADASTRAR CHEQUE RECEBIDO          |               ///\n");
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///                                                                       ///\n");
-	printf("///            Numero do cheque:                                          ///\n");
-	printf("///            Banco:                                                     ///\n");
-	printf("///            Agencia:                                                   ///\n");
-	printf("///            Conta:                                                     ///\n");
-	printf("///            Valor do cheque:                                           ///\n");
-	printf("///            Data de Deposito:                                          ///\n");
+	printf("///            Numero do cheque (EX:0001): ");
+	scanf("%[0-9]", nChequeRecebido);
+	getchar();
+	printf("///            Nome do Banco : ");
+	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeBanco);
+	getchar();
+	printf("///            Agencia (EX: 1234-5) : ");
+	scanf("%[0-9 -]", agencia);
+	getchar();
+	printf("///            Conta (EX: 12345-6): ");
+	scanf("%[0-9 -]", numeroConta);
+	getchar();
+	printf("///            Valor do cheque: R$");
+	scanf("%[0-9 ,]", valor);
+	getchar();
+	printf("///            Data de Deposito (DD/MM/AAAA): ");
+	scanf("%[0-9 /]", data);
+	getchar();
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
