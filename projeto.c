@@ -19,16 +19,16 @@ char moduloRecebimento(void);
 char moduloEnvio(void);
 char moduloCliente(void);
 void telaCadastrarChequeRecebido(void);
-char telaConsultarChequeRecebido(void);
-char telaAlterarChequeRecebido(void);
+void telaConsultarChequeRecebido(void);
+void telaAlterarChequeRecebido(void);
 void telaExcluirChequeRecebido(void);
 void telaCadastrarChequeEnviado(void);
-char telaConsultarChequeEnviado(void);
-char telaAlterarChequeEnviado(void);
+void telaConsultarChequeEnviado(void);
+void telaAlterarChequeEnviado(void);
 void telaExcluirChequeEnviado(void);
 void telaCadastrarCliente(void);
-char telaPesquisarCliente(void);
-char telaAlterarCliente(void);
+void telaPesquisarCliente(void);
+void telaAlterarCliente(void);
 void telaExcluirCliente(void);
 
 ///
@@ -36,23 +36,22 @@ void telaExcluirCliente(void);
 ///
 int main(void) {
     char opcao;
-
-	telaSobre();
 	opcao = menuPrincipal();
+	telaSobre();
 	opcao = moduloRecebimento();
 	opcao = moduloEnvio(); 
 	opcao = moduloCliente();
 	telaCadastrarChequeRecebido();
-	opcao = telaConsultarChequeRecebido();
-	opcao = telaAlterarChequeRecebido();
+	telaConsultarChequeRecebido();
+	telaAlterarChequeRecebido();
 	telaExcluirChequeRecebido();
 	telaCadastrarChequeEnviado();
-	opcao = telaConsultarChequeEnviado();
-	opcao = telaAlterarChequeEnviado();
+	telaConsultarChequeEnviado();
+	telaAlterarChequeEnviado();
 	telaExcluirChequeEnviado();
 	telaCadastrarCliente();
-	opcao = telaPesquisarCliente();
-	opcao = telaAlterarCliente();
+	telaPesquisarCliente();
+	telaAlterarCliente();
 	telaExcluirCliente();
     return 0;
 }
@@ -292,8 +291,8 @@ void telaCadastrarChequeRecebido(void) {
 }
 
 
-char telaConsultarChequeRecebido(void) {
-	char op;
+void telaConsultarChequeRecebido(void) {
+	char nChequeConsulta[5];
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -310,25 +309,26 @@ char telaConsultarChequeRecebido(void) {
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///            |         CONSULTAR CHEQUE RECEIDO         |               ///\n");
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
-	printf("///                                                                       ///\n");
-	printf("///            1.Numero do cheque:                                        ///\n");
-	printf("///            2.Banco:                                                   ///\n");
-	printf("///            3.Agencia:                                                 ///\n");
-	printf("///            4.Conta:                                                   ///\n");
-	printf("///            5.Valor do cheque:                                         ///\n");
-	printf("///            6.Data de Deposito:                                        ///\n");
-	printf("///            INFORME O NUMERO REFERENTE AO QUE DESEJA CONSULTAR: ");
-	scanf("%c" , &op);
+	printf("///            INFORME O NUMERO DO CHEQUE QUE DESEJA FAZER A CONSUTA:     ///\n");
+	printf("///            Numero do cheque: ");
+	scanf("%[0-9]", nChequeConsulta);
 	getchar();
+	printf("///            OS DADOS DO CHEQUE SÃO:                                    ///\n");
+	printf("///            Banco:                                                     ///\n");
+	printf("///            Agencia:                                                   ///\n");
+	printf("///            Conta:                                                     ///\n");
+	printf("///            Valor do cheque:                                           ///\n");
+	printf("///            Data de Deposito:                                          ///\n");
+	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
-	return op;
 }
 
-char telaAlterarChequeRecebido(void) {
+void telaAlterarChequeRecebido(void) {
 	char op;
+	char nChequeAlterar[5];
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -345,7 +345,10 @@ char telaAlterarChequeRecebido(void) {
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///            |          ALTERAR CHEQUE RECEBIDO         |               ///\n");
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
-	printf("///                                                                       ///\n");
+	printf("///            INFORME O NUMERO DO CHEQUE EM QUE DESEJA FAZER ALTERAÇÕES: ///\n");
+	printf("///            Numero do cheque: ");
+	scanf("%[0-9]", nChequeAlterar);
+	getchar();
 	printf("///            1.Numero do cheque:                                        ///\n");
 	printf("///            2.Banco:                                                   ///\n");
 	printf("///            3.Agencia:                                                 ///\n");
@@ -359,7 +362,6 @@ char telaAlterarChequeRecebido(void) {
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
-	return op;
 }
 
 void telaExcluirChequeRecebido(void) {
@@ -398,12 +400,12 @@ void telaExcluirChequeRecebido(void) {
 }
 
 void telaCadastrarChequeEnviado(void) {
-	char nChequeEnviado;
-	char nomeDoBanco;
-	char nAgencia;
-	char nConta;
-	char valorCheque;
-	char dataEnvio;
+	char nChequeEnviado[5];
+	char nomeDoBanco[30];
+	char nAgencia[10];
+	char nConta[10];
+	char valorCheque[10];
+	char dataEnvio[12];
 
     system("clear");
 	printf("\n");
@@ -447,8 +449,8 @@ void telaCadastrarChequeEnviado(void) {
 	getchar();
 }
 
-char telaConsultarChequeEnviado(void) {
-	char op;
+void telaConsultarChequeEnviado(void) {
+	char numeroChequeConsulta[5];
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -465,25 +467,26 @@ char telaConsultarChequeEnviado(void) {
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///            |         CONSULTAR CHEQUE ENVIADO         |               ///\n");
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
-	printf("///                                                                       ///\n");
-	printf("///            1.Numero do cheque:                                        ///\n");
+	printf("///            INFORE O NUMERO DO CHEQUE QUE DESEJA FAZER A CONSULTA:     ///\n");
+	printf("///            Numero do cheque: ");
+	scanf("%[0-9]", numeroChequeConsulta);
+	getchar();
+	printf("///            OS DADOS DO CHEQUE SÃO:                                    ///\n");
 	printf("///            2.Banco:                                                   ///\n");
 	printf("///            3.Agencia:                                                 ///\n");
 	printf("///            4.Conta:                                                   ///\n");
 	printf("///            5.Valor do cheque:                                         ///\n");
 	printf("///            6.Data de Deposito:                                        ///\n");
-	printf("///            INFORME O NUMERO REFERENTE AO QUE DESEJA CONSULTAR: ");
-	scanf("%c" , &op);
-	getchar(); 
+	printf("///                                                                       ///\n"); 
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
-	return op;
 }
 
-char telaAlterarChequeEnviado(void) {
+void telaAlterarChequeEnviado(void) {
 	char op;
+	char numeroChequeAlterar[5];
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -500,8 +503,11 @@ char telaAlterarChequeEnviado(void) {
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///            |          ALTERAR CHEQUE ENVIADO          |               ///\n");
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
-	printf("///                                                                       ///\n");
-	printf("///            1.Numero do cheque:                                        ///\n");
+	printf("///            INFORME O NUMERO DO CHEQUE EM QUE DESEJA FAZER ALTERAÇÕES: ///\n");
+	printf("///            Numero do cheque: ");
+	scanf("%[0-9]", numeroChequeAlterar);
+	getchar();
+	printf("///            1.Numero do Cheque:                                        ///\n");
 	printf("///            2.Banco:                                                   ///\n");
 	printf("///            3.Agencia:                                                 ///\n");
 	printf("///            4.Conta:                                                   ///\n");
@@ -514,11 +520,10 @@ char telaAlterarChequeEnviado(void) {
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
-	return op;
 }
 
 void telaExcluirChequeEnviado(void) {
-	char numeroChequeExcluir;
+	char numeroChequeExcluir[5];
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -553,11 +558,11 @@ void telaExcluirChequeEnviado(void) {
 }
 
 void telaCadastrarCliente(void) {
-	char CPF;
-	char nomeCliente;
-	char email;
-	char dataNascimento;
-	char celular;
+	char CPF[15];
+	char nomeCliente[30];
+	char email[30];
+	char dataNascimento[12];
+	char celular[12];
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -598,8 +603,8 @@ void telaCadastrarCliente(void) {
 	getchar();
 }
 
-char telaPesquisarCliente(void) {
-	char op;
+void telaPesquisarCliente(void) {
+	char pesquisarCPF[15];
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -616,25 +621,25 @@ char telaPesquisarCliente(void) {
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///               |     PESQUISAR DADOS DE UM CLIENTE        |            ///\n");
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
-	printf("///                                                                       ///\n");
-	printf("///                                                                       ///\n");
-	printf("///               1. Nome:                                                ///\n");
-	printf("///               2. E-mail:                                              ///\n");
-	printf("///               3. Data de Nascimento:                                  ///\n");
-	printf("///               4. Celular:                                             ///\n");
-	printf("///               INFORME O NUMERO REFERENTE AO DADO QUE DESEJA SABER: ");
-	scanf("%c" , &op);
+	printf("///               INFORME O CPF DO CLIENTE A CONSULTAR:                   ///\n");
+	printf("///               CPF: ");
+	scanf("%[0-9 - .]", pesquisarCPF);
 	getchar();
+	printf("///               Nome:                                                   ///\n");
+	printf("///               E-mail:                                                 ///\n");
+	printf("///               Data de Nascimento:                                     ///\n");
+	printf("///               Celular:                                                ///\n");
+	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
-	return op;
 }
 
-char telaAlterarCliente(void) {
+void telaAlterarCliente(void) {
 	char op;
+	char alterarCPF[15];
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -651,12 +656,15 @@ char telaAlterarCliente(void) {
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///               |     ALTERAR DADOS DE UM CLIENTE          |            ///\n");
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
-	printf("///                                                                       ///\n");
-	printf("///                                                                       ///\n");
-	printf("///               1. Nome:                                                ///\n");
-	printf("///               2. E-mail:                                              ///\n");
-	printf("///               3. Data de Nascimento:                                  ///\n");
-	printf("///               4. Celular:                                             ///\n");
+	printf("///               INFORME O CPF DO CLIENTE QUE DESEJA ALTERAR             ///\n");
+	printf("///               CPF: ");
+	scanf("%[0-9 - .]", alterarCPF);
+	getchar();
+	printf("///               1. CPF                                                  ///\n");
+	printf("///               2. Nome:                                                ///\n");
+	printf("///               3. E-mail:                                              ///\n");
+	printf("///               4. Data de Nascimento:                                  ///\n");
+	printf("///               5. Celular:                                             ///\n");
 	printf("///               INFORME O NUMERO REFERENTE AO QUE DESEJA ALTERAR ");
 	scanf("%c" , &op);
 	getchar();
@@ -665,11 +673,10 @@ char telaAlterarCliente(void) {
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
-	return op;
 }
 
 void telaExcluirCliente(void) {
-	char cpfExcluir;
+	char cpfExcluir[15];
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
