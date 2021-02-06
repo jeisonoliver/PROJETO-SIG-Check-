@@ -363,6 +363,7 @@ char telaAlterarChequeRecebido(void) {
 }
 
 void telaExcluirChequeRecebido(void) {
+	char nChequeExcluir[4];
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -379,8 +380,11 @@ void telaExcluirChequeRecebido(void) {
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///            |         EXCLUIR CHEQUE RECEBIDO          |               ///\n");
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
-	printf("///            INFORME OS DADOS DO CHEQUE QUE DESEJA EXCLUIR:             ///\n");
-	printf("///            Numero do cheque:                                          ///\n");
+	printf("///            INFORME O NUMERO DO CHEQUE QUE DESEJA EXCLUIR:             ///\n");
+	printf("///            Numero do cheque:(EX: 0001) ");
+	scanf("%[0-9]", nChequeExcluir);
+	getchar();
+	printf("///            CONFIRA OS DADOS DO CHEQUE A EXCLUIR:                      ///\n");
 	printf("///            Banco:                                                     ///\n");
 	printf("///            Agencia:                                                   ///\n");
 	printf("///            Conta:                                                     ///\n");
@@ -394,6 +398,13 @@ void telaExcluirChequeRecebido(void) {
 }
 
 void telaCadastrarChequeEnviado(void) {
+	char nChequeEnviado;
+	char nomeDoBanco;
+	char nAgencia;
+	char nConta;
+	char valorCheque;
+	char dataEnvio;
+
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -411,12 +422,24 @@ void telaCadastrarChequeEnviado(void) {
 	printf("///            |        CADASTRAR CHEQUE ENVIADO          |               ///\n");
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///                                                                       ///\n");
-	printf("///            Numero do cheque:                                          ///\n");
-	printf("///            Banco:                                                     ///\n");
-	printf("///            Agencia:                                                   ///\n");
-	printf("///            Conta:                                                     ///\n");
-	printf("///            Valor do cheque:                                           ///\n");
-	printf("///            Data de Deposito:                                          ///\n");
+	printf("///            Numero do cheque (EX: 0001): ");
+	scanf("%[0-9]" , nChequeEnviado);
+	getchar();
+	printf("///            Nome Do Banco: ");
+	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeDoBanco);
+	getchar();
+	printf("///            Agencia (EX: 1234-5): ");
+	scanf("%[0-9 -]", nAgencia);
+	getchar();
+	printf("///            Conta (EX: 12345-6): ");
+	scanf("%[0-9 -]", nConta);
+	getchar();
+	printf("///            Valor do cheque: R$");
+	scanf("%[0-9 -]", valorCheque);
+	getchar();
+	printf("///            Data de Deposito (DD/MM/AAAA): ");
+	scanf("%[0-9 /]", dataEnvio);
+	getchar();
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
@@ -495,6 +518,7 @@ char telaAlterarChequeEnviado(void) {
 }
 
 void telaExcluirChequeEnviado(void) {
+	char numeroChequeExcluir;
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -511,8 +535,11 @@ void telaExcluirChequeEnviado(void) {
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///            |         EXCLUIR CHEQUE ENVIADO           |               ///\n");
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
-	printf("///            INFORME OS DADOS DO CHEQUE QUE DESEJA EXCLUIR:             ///\n");
-	printf("///            Numero do cheque:                                          ///\n");
+	printf("///            INFORME O NUMERO DO CHEQUE QUE DESEJA EXCLUIR:             ///\n");
+	printf("///            Numero do cheque (EX:0001):");
+	scanf("%[0-9]", numeroChequeExcluir);
+	getchar();
+	printf("///            CONFIRA OS DADOS DO CHEQUE A EXCLUIR:                      ///\n");
 	printf("///            Banco:                                                     ///\n");
 	printf("///            Agencia:                                                   ///\n");
 	printf("///            Conta:                                                     ///\n");
@@ -526,6 +553,11 @@ void telaExcluirChequeEnviado(void) {
 }
 
 void telaCadastrarCliente(void) {
+	char CPF;
+	char nomeCliente;
+	char email;
+	char dataNascimento;
+	char celular;
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -543,11 +575,21 @@ void telaCadastrarCliente(void) {
 	printf("///               |           CADASTRAR CLIENTE              |            ///\n");
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///                                                                       ///\n");
-	printf("///                                                                       ///\n");
-	printf("///               Nome:                                                   ///\n");
-	printf("///               E-mail:                                                 ///\n");
-	printf("///               Data de Nascimento:                                     ///\n");
-	printf("///               Celular:                                                ///\n");
+	printf("///               CPF (000.000.000-00): ");
+	scanf("%[0-9 - .]", CPF);
+	getchar();
+	printf("///               Nome: ");
+	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeCliente);
+	getchar();
+	printf("///               E-mail: ");
+	scanf("%[a-z @.]", email);
+	getchar();
+	printf("///               Data de Nascimento (DD / MM / AAAA): ");
+	scanf("%[0-9 /]", dataNascimento);
+	getchar();
+	printf("///               Celular: ");
+	scanf("%[0-9]", celular);
+	getchar();
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -627,6 +669,7 @@ char telaAlterarCliente(void) {
 }
 
 void telaExcluirCliente(void) {
+	char cpfExcluir;
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -644,7 +687,11 @@ void telaExcluirCliente(void) {
 	printf("///               |     EXCLUIR DADOS DE UM CLIENTE          |            ///\n");
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///                                                                       ///\n");
-	printf("///               INFORME OS DADOS DO CLIENTE QUE DESEJA EXCLUIR:         ///\n");
+	printf("///               INFORME O CPF DO CLIENTE QUE DESEJA EXCLUIR:            ///\n");
+	printf("///               CPF: ");
+	scanf("%[0-9 - .]",cpfExcluir);
+	getchar();
+	printf("///               CONFIRME OS DADOS DO CLIENTE A EXCLUIR:                 ///\n");
 	printf("///               Nome:                                                   ///\n");
 	printf("///               E-mail:                                                 ///\n");
 	printf("///               Data de Nascimento:                                     ///\n");
