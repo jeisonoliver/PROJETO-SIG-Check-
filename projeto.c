@@ -36,26 +36,43 @@ void telaExcluirCliente(void);
 ///
 int main(void) {
     char opcao;
-	opcao = menuPrincipal();
+	do {
+	    opcao = menuPrincipal();
+		switch (opcao) {
+			case '1' :  moduloRecebimento();
+			                        break;
+			case '2' :  moduloEnvio();
+			                        break;
+			case '3' :	moduloCliente();
+			                        break;
+			case '4' :  telaSobre();
+			                        break;
+		}
+	} while (opcao != '0');
+	return 0;
+
 	telaSobre();
+
 	opcao = moduloRecebimento();
 	opcao = moduloEnvio(); 
 	opcao = moduloCliente();
+
 	telaCadastrarChequeRecebido();
 	telaConsultarChequeRecebido();
 	telaAlterarChequeRecebido();
 	telaExcluirChequeRecebido();
+
 	telaCadastrarChequeEnviado();
 	telaConsultarChequeEnviado();
 	telaAlterarChequeEnviado();
 	telaExcluirChequeEnviado();
+	
 	telaCadastrarCliente();
 	telaPesquisarCliente();
 	telaAlterarCliente();
 	telaExcluirCliente();
     return 0;
-}
-
+ }
 
 char menuPrincipal(void) {
 	char op;
@@ -77,7 +94,7 @@ char menuPrincipal(void) {
 	printf("///             |||||||||||||||||||||||||||||||||||||||||||||             ///\n");
 	printf("///                                                                       ///\n");
 	printf("///             1. Módulo Recebimento de Cheque                           ///\n");
-	printf("///             2. Módulo Desconto de Cheque                              ///\n");
+	printf("///             2. Módulo Envio de Cheque                                 ///\n");
 	printf("///             3. Módulo clientes                                        ///\n");
 	printf("///             4. Informações sobre o sistema                            ///\n");
 	printf("///             0. Encerra o programa                                     ///\n");
