@@ -17,23 +17,23 @@ char menuPrincipal(void);
 
 void telaSobre(void);
 
-char moduloRecebimento(void);
-char moduloEnvio(void);
-char moduloCliente(void);
+char menuRecebimento(void);
+char menuEnvio(void);
+char menuCliente(void);
 
-int menuRecebimento(void);
+void moduloRecebimento(void);
 char telaCadastrarChequeRecebido(void);
 char telaConsultarChequeRecebido(void);
 char telaAlterarChequeRecebido(void);
 char telaExcluirChequeRecebido(void);
 
-void menuEnvio(void);
+void moduloEnvio(void);
 char telaCadastrarChequeEnviado(void);
 char telaConsultarChequeEnviado(void);
 char telaAlterarChequeEnviado(void);
 char telaExcluirChequeEnviado(void);
 
-void menuCliente(void);
+void moduloCliente(void);
 char telaCadastrarCliente(void);
 char telaPesquisarCliente(void);
 char telaAlterarCliente(void);
@@ -131,7 +131,7 @@ void telaSobre(void) {
 	getchar();
 }
 
-char moduloRecebimento(void) {
+char menuRecebimento(void) {
 	char op;
     system("clear");
 	printf("\n");
@@ -169,7 +169,7 @@ char moduloRecebimento(void) {
 }
 
 
-char moduloEnvio(void) {
+char menuEnvio(void) {
 	char op;
     system("clear");
 	printf("\n");
@@ -207,7 +207,7 @@ char moduloEnvio(void) {
 }
 
 
-char moduloCliente(void) {
+char menuCliente(void) {
 	char op;
     system("clear");
 	printf("\n");
@@ -242,6 +242,57 @@ char moduloCliente(void) {
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 	return op;
+}
+
+void moduloRecebimento(void){
+	char opcao;
+	do {
+		opcao = menuRecebimento();
+		switch (opcao) {
+			case '1' : telaCadastrarChequeRecebido();
+											   break;
+			case '2' : telaConsultarChequeRecebido();
+											   break;
+			case '3' : telaAlterarChequeRecebido();
+											   break;
+			case '4' :  telaExcluirChequeRecebido();
+											   break;
+			}
+	} while (opcao != '0');
+}
+
+void moduloEnvio(void){
+	char opcao;
+	do {
+		opcao = menuEnvio();
+		switch (opcao) {
+			case '1' : telaCadastrarChequeEnviado();
+											   break;
+			case '2' : telaConsultarChequeEnviado();
+											   break;
+			case '3' : telaAlterarChequeEnviado();
+											   break;
+			case '4' :  telaExcluirChequeEnviado();
+											   break;
+			}
+	} while (opcao != '0');
+}
+
+void moduloCliente(void){
+	char opcao;
+	do {
+		opcao = menuCliente();
+		switch (opcao) {
+			case '1' : telaCadastrarCliente();
+											   break;
+			case '2' : telaPesquisarCliente();
+											   break;
+			case '3' : telaAlterarCliente();
+											   break;
+			case '4' : telaExcluirCliente();
+											   break;
+			}
+	} while (opcao != '0');
 }
 
 char telaCadastrarChequeRecebido(void) {
