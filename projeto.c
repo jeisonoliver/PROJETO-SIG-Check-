@@ -14,22 +14,30 @@
 /// Assinaturas das funções
 ///
 char menuPrincipal(void);
+
 void telaSobre(void);
+
 char moduloRecebimento(void);
 char moduloEnvio(void);
 char moduloCliente(void);
-void telaCadastrarChequeRecebido(void);
-void telaConsultarChequeRecebido(void);
-void telaAlterarChequeRecebido(void);
-void telaExcluirChequeRecebido(void);
-void telaCadastrarChequeEnviado(void);
-void telaConsultarChequeEnviado(void);
-void telaAlterarChequeEnviado(void);
-void telaExcluirChequeEnviado(void);
-void telaCadastrarCliente(void);
-void telaPesquisarCliente(void);
-void telaAlterarCliente(void);
-void telaExcluirCliente(void);
+
+int menuRecebimento(void);
+char telaCadastrarChequeRecebido(void);
+char telaConsultarChequeRecebido(void);
+char telaAlterarChequeRecebido(void);
+char telaExcluirChequeRecebido(void);
+
+void menuEnvio(void);
+char telaCadastrarChequeEnviado(void);
+char telaConsultarChequeEnviado(void);
+char telaAlterarChequeEnviado(void);
+char telaExcluirChequeEnviado(void);
+
+void menuCliente(void);
+char telaCadastrarCliente(void);
+char telaPesquisarCliente(void);
+char telaAlterarCliente(void);
+char telaExcluirCliente(void);
 
 ///
 /// Programa Principal
@@ -50,28 +58,6 @@ int main(void) {
 		}
 	} while (opcao != '0');
 	return 0;
-
-	telaSobre();
-
-	opcao = moduloRecebimento();
-	opcao = moduloEnvio(); 
-	opcao = moduloCliente();
-
-	telaCadastrarChequeRecebido();
-	telaConsultarChequeRecebido();
-	telaAlterarChequeRecebido();
-	telaExcluirChequeRecebido();
-
-	telaCadastrarChequeEnviado();
-	telaConsultarChequeEnviado();
-	telaAlterarChequeEnviado();
-	telaExcluirChequeEnviado();
-	
-	telaCadastrarCliente();
-	telaPesquisarCliente();
-	telaAlterarCliente();
-	telaExcluirCliente();
-    return 0;
  }
 
 char menuPrincipal(void) {
@@ -258,7 +244,7 @@ char moduloCliente(void) {
 	return op;
 }
 
-void telaCadastrarChequeRecebido(void) {
+char telaCadastrarChequeRecebido(void) {
 	char nChequeRecebido[4];
 	char nomeBanco[30];
 	char agencia[10];
@@ -308,7 +294,7 @@ void telaCadastrarChequeRecebido(void) {
 }
 
 
-void telaConsultarChequeRecebido(void) {
+char telaConsultarChequeRecebido(void) {
 	char nChequeConsulta[5];
     system("clear");
 	printf("\n");
@@ -343,7 +329,7 @@ void telaConsultarChequeRecebido(void) {
 	getchar();
 }
 
-void telaAlterarChequeRecebido(void) {
+char telaAlterarChequeRecebido(void) {
 	char op;
 	char nChequeAlterar[5];
     system("clear");
@@ -381,7 +367,7 @@ void telaAlterarChequeRecebido(void) {
 	getchar();
 }
 
-void telaExcluirChequeRecebido(void) {
+char telaExcluirChequeRecebido(void) {
 	char nChequeExcluir[4];
     system("clear");
 	printf("\n");
@@ -416,7 +402,7 @@ void telaExcluirChequeRecebido(void) {
 	getchar();
 }
 
-void telaCadastrarChequeEnviado(void) {
+char telaCadastrarChequeEnviado(void) {
 	char nChequeEnviado[5];
 	char nomeDoBanco[30];
 	char nAgencia[10];
@@ -466,7 +452,7 @@ void telaCadastrarChequeEnviado(void) {
 	getchar();
 }
 
-void telaConsultarChequeEnviado(void) {
+char telaConsultarChequeEnviado(void) {
 	char numeroChequeConsulta[5];
     system("clear");
 	printf("\n");
@@ -501,7 +487,7 @@ void telaConsultarChequeEnviado(void) {
 	getchar();
 }
 
-void telaAlterarChequeEnviado(void) {
+char telaAlterarChequeEnviado(void) {
 	char op;
 	char numeroChequeAlterar[5];
     system("clear");
@@ -539,7 +525,7 @@ void telaAlterarChequeEnviado(void) {
 	getchar();
 }
 
-void telaExcluirChequeEnviado(void) {
+char telaExcluirChequeEnviado(void) {
 	char numeroChequeExcluir[5];
     system("clear");
 	printf("\n");
@@ -574,7 +560,7 @@ void telaExcluirChequeEnviado(void) {
 	getchar();
 }
 
-void telaCadastrarCliente(void) {
+char telaCadastrarCliente(void) {
 	char CPF[15];
 	char nomeCliente[30];
 	char email[30];
@@ -620,7 +606,7 @@ void telaCadastrarCliente(void) {
 	getchar();
 }
 
-void telaPesquisarCliente(void) {
+char telaPesquisarCliente(void) {
 	char pesquisarCPF[15];
     system("clear");
 	printf("\n");
@@ -654,7 +640,7 @@ void telaPesquisarCliente(void) {
 	getchar();
 }
 
-void telaAlterarCliente(void) {
+char telaAlterarCliente(void) {
 	char op;
 	char alterarCPF[15];
     system("clear");
@@ -692,7 +678,7 @@ void telaAlterarCliente(void) {
 	getchar();
 }
 
-void telaExcluirCliente(void) {
+char telaExcluirCliente(void) {
 	char cpfExcluir[15];
     system("clear");
 	printf("\n");
