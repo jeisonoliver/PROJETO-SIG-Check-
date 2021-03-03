@@ -3,7 +3,7 @@
 
 
 char telaCadastrarCliente(void) {
-	char CPF[20];
+	char CPF[30];
 	char nomeCliente[30];
 	char email[30];
 	char dataNascimento[12];
@@ -25,8 +25,8 @@ char telaCadastrarCliente(void) {
 	printf("///               |           CADASTRAR CLIENTE              |            ///\n");
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///                                                                       ///\n");
-	printf("///               CPF (000.000.000-00): ");
-	scanf("%[0-9 . - ]", CPF);
+	printf("///               CPF (000.000.000_00): ");
+	scanf("%[0-9 _ . ]", CPF);
 	getchar();
 	printf("///               Nome: ");
 	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeCliente);
@@ -68,7 +68,7 @@ char telaPesquisarCliente(void) {
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///               INFORME O CPF DO CLIENTE A CONSULTAR:                   ///\n");
 	printf("///               CPF: ");
-	scanf("%[0-9 . - ]", pesquisarCPF);
+	scanf("%[0-9 . _ ]", pesquisarCPF);
 	getchar();
 	printf("///               Nome:                                                   ///\n");
 	printf("///               E-mail:                                                 ///\n");
@@ -103,7 +103,7 @@ char telaAlterarCliente(void) {
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///               INFORME O CPF DO CLIENTE QUE DESEJA ALTERAR             ///\n");
 	printf("///               CPF: ");
-	scanf("%[0-9 . - ]", alterarCPF);
+	scanf("%[0-9 . _ ]", alterarCPF);
 	getchar();
 	printf("///               1. CPF                                                  ///\n");
 	printf("///               2. Nome:                                                ///\n");
@@ -141,7 +141,7 @@ char telaExcluirCliente(void) {
 	printf("///                                                                       ///\n");
 	printf("///               INFORME O CPF DO CLIENTE QUE DESEJA EXCLUIR:            ///\n");
 	printf("///               CPF: ");
-	scanf("%[0-9 . - ]",cpfExcluir);
+	scanf("%[0-9 . _ ]",cpfExcluir);
 	getchar();
 	printf("///               CONFIRME OS DADOS DO CLIENTE A EXCLUIR:                 ///\n");
 	printf("///               Nome:                                                   ///\n");
