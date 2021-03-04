@@ -12,6 +12,8 @@ char telaCadastrarChequeEnviado(void) {
 	char valorChequeReal[10];
 	char valorChequeCentavos[2];
 	char dataEnvio[12];
+	char dataCobrir[12];
+
 
     system("clear");
 	printf("\n");
@@ -54,8 +56,11 @@ char telaCadastrarChequeEnviado(void) {
 	printf("///            Valor do cheque (Apenas o valor referente aos centavos!!): R$");
 	scanf("%[0-9]", valorChequeCentavos);
 	getchar();
-	printf("///            Data de Deposito (DD/MM/AAAA): ");
+	printf("///            Data de Envio (DD/MM/AAAA): ");
 	scanf("%[0-9 / ]", dataEnvio);
+	getchar();
+	printf("///            Data Para Cobrir o Valor do Cheque(vencimento) (DD/MM/AAAA): ");
+	scanf("%[0-9 / ]", dataCobrir);
 	getchar();
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -87,11 +92,12 @@ char telaConsultarChequeEnviado(void) {
 	scanf("%[0-9]", numeroChequeConsulta);
 	getchar();
 	printf("///            OS DADOS DO CHEQUE SÃO:                                    ///\n");
-	printf("///            2.Banco:                                                   ///\n");
-	printf("///            3.Agencia:                                                 ///\n");
-	printf("///            4.Conta:                                                   ///\n");
-	printf("///            5.Valor do cheque:                                         ///\n");
-	printf("///            6.Data de Deposito:                                        ///\n");
+	printf("///            Banco:                                                     ///\n");
+	printf("///            Agencia:                                                   ///\n");
+	printf("///            Conta:                                                     ///\n");
+	printf("///            Valor do cheque:                                           ///\n");
+	printf("///            Data de Deposito:                                          ///\n");
+	printf("///            Data de Vencimento:                                        ///\n");
 	printf("///                                                                       ///\n"); 
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
@@ -128,6 +134,7 @@ char telaAlterarChequeEnviado(void) {
 	printf("///            4.Conta:                                                   ///\n");
 	printf("///            5.Valor do cheque:                                         ///\n");
 	printf("///            6.Data de Deposito:                                        ///\n");
+	printf("///            7.Data de Vencimento:                                      ///\n");
 	printf("///            INFORME O NUMERO REFERENTE AO QUE DESEJA ALTERAR: ");
 	scanf("%c" , &op);
 	getchar();
@@ -165,6 +172,7 @@ char telaExcluirChequeEnviado(void) {
 	printf("///            Conta:                                                     ///\n");
 	printf("///            Valor do cheque:                                           ///\n");
 	printf("///            Data de Deposito:                                          ///\n");
+	printf("///            Data de Vencimento:                                        ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
