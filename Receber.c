@@ -7,8 +7,11 @@ char telaCadastrarChequeRecebido(void) {
 	char nomeBanco[30];
 	char agencia[10];
 	char numeroConta[10];
-	char valor[15];
+	char valorReal[15];
+	char valorCentavos[2];
 	char data[10];
+	int digitoA[1];
+	int digitoC[1];
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -32,14 +35,23 @@ char telaCadastrarChequeRecebido(void) {
 	printf("///            Nome do Banco : ");
 	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeBanco);
 	getchar();
-	printf("///            Agencia (EX: 1234-5) : ");
-	scanf("%[0-9 -]", agencia);
+	printf("///            Agencia (SEM O DIGITO) : ");
+	scanf("%[0-9]", agencia);
 	getchar();
-	printf("///            Conta (EX: 12345-6): ");
-	scanf("%[0-9 -]", numeroConta);
+	printf("///            Digito Agencia: ");
+	scanf("%[0-9]", digitoA);
 	getchar();
-	printf("///            Valor do cheque: R$");
-	scanf("%[0-9 ,]", valor);
+	printf("///            Conta (SEM O DIGITO): ");
+	scanf("%[0-9]", numeroConta);
+	getchar();
+	printf("///            Digito Conta: ");
+	scanf("%[0-9]", digitoC);
+	getchar();
+	printf("///            Valor do cheque (apenas o valor em real!!): R$");
+	scanf("%[0-9]", valorReal);
+	getchar();
+	printf("///            Valor do cheque (apenas o valor referente aos centavos!!): R$");
+	scanf("%[0-9]", valorCentavos);
 	getchar();
 	printf("///            Data de Deposito (DD/MM/AAAA): ");
 	scanf("%[0-9 /]", data);
@@ -126,7 +138,7 @@ char telaAlterarChequeRecebido(void) {
 }
 
 char telaExcluirChequeRecebido(void) {
-	char nChequeExcluir[4];
+	char nChequeExcluir[5];
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
