@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "validarValor.h"
+#include "validaçõesUteis.h"
 
 
 char telaCadastrarChequeRecebido(void) {
@@ -50,20 +50,20 @@ char telaCadastrarChequeRecebido(void) {
 	scanf("%[0-9]", digitoC);
 	getchar();
 	printf("///            Valor do cheque (apenas o valor em real!!): R$");
-	scanf("%[0-9]", valorReal);
+	scanf("%d", &valorReal);
 	getchar();
 	printf("///            Valor do cheque (apenas o valor referente aos centavos!!): R$");
-	scanf("%[0-9]", valorCentavos);
+	scanf("%d", &valorCentavos);
 	getchar();
 	while (!validarValor(valorReal, valorCentavos)){
-	printf("os valores informados não são validos!");
-	printf("tente novamente!"); 
-	printf("insira o valor em real");
-	scanf("%d", valorReal);
-    printf("insira o valor em centavos");
-	scanf("%d", valorCentavos);
+	printf("///           os valores informados não são validos!");
+	printf("///           tente novamente!"); 
+	printf("///           insira o valor em real");
+	scanf("%d", &valorReal);
+    printf("///           insira o valor em centavos");
+	scanf("%d", &valorCentavos);
 	}
-	printf("os valores informados são validos!");
+	printf("///           os valores informados são validos! valor do cheque: %d , %d \n",valorReal,valorCentavos);
 	return 0;
 	printf("///            Data de Recebimento do Cheque (DD/MM/AAAA): ");
 	scanf("%[0-9 /]", dataR);
