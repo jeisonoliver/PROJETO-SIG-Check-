@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "validacoesUteis.h"
 
 
 char telaCadastrarCliente(void) {
@@ -7,7 +8,7 @@ char telaCadastrarCliente(void) {
 	char nomeCliente[30];
 	char email[30];
 	char dataNascimento[12];
-	int celular;
+	char celular[10];
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -38,8 +39,20 @@ char telaCadastrarCliente(void) {
 	scanf("%[0-9 /]", dataNascimento);
 	getchar();
 	printf("///               Celular (APENAS NUMEROS): ");
-	scanf("%d", &celular);
+	scanf("%[^\n]", celular);
 	getchar();
+
+    while (!ntelefone(celular)) {
+    printf("///               O numero informado é inválido!\n");
+    printf("///               Tente novamente...\n");
+    printf("///               Digite seu numero de celular: ");
+    scanf("%[^\n]", celular);
+    getchar();
+    }
+
+    printf("///               telefone Lido: %s\n", celular);
+    return 0;
+
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
