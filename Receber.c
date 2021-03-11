@@ -4,7 +4,7 @@
 
 
 char telaCadastrarChequeRecebido(void) {
-	char nChequeRecebido[4];
+	char numero[5];
 	char nomeBanco[30];
 	char agencia[10];
 	char numeroConta[10];
@@ -12,8 +12,8 @@ char telaCadastrarChequeRecebido(void) {
 	int valorCentavos;
 	char dataR[10];
 	char dataV[10];
-	int digitoA[1];
-	int digitoC[1];
+	char digitoA[1];
+	char digitoC[1];
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -32,8 +32,20 @@ char telaCadastrarChequeRecebido(void) {
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///                                                                       ///\n");
 	printf("///            Numero do cheque (EX:0001): ");
-	scanf("%[0-9]", nChequeRecebido);
+	scanf("%[0-9]", numero);
 	getchar();
+
+    while (!Vnumero(numero)) {
+    printf("///               O numero informado é inválido!\n");
+    printf("///               Tente novamente...\n");
+    printf("///               Digite o numero do cheque: ");
+    scanf("%[^\n]", numero);
+    getchar();
+    }
+
+    printf("///               telefone Lido: %s\n", numero);
+    return 0;
+
 	printf("///            Nome do Banco : ");
 	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeBanco);
 	getchar();
