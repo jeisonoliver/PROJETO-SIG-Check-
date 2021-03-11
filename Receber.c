@@ -56,11 +56,11 @@ char telaCadastrarChequeRecebido(void) {
 	scanf("%d", &valorCentavos);
 	getchar();
 	while (!validarValor(valorReal, valorCentavos)){
-	printf("///           os valores informados não são validos!");
-	printf("///           tente novamente!"); 
-	printf("///           insira o valor em real");
+	printf("///           os valores informados não são validos! \n");
+	printf("///           tente novamente! \n"); 
+	printf("///           insira o valor em real: R$");
 	scanf("%d", &valorReal);
-    printf("///           insira o valor em centavos");
+    printf("///           insira o valor em centavos: C");
 	scanf("%d", &valorCentavos);
 	}
 	printf("///           os valores informados são validos! valor do cheque: %d , %d \n",valorReal,valorCentavos);
