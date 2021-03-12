@@ -75,7 +75,7 @@ char telaCadastrarChequeRecebido(void) {
 	scanf("%d", &valorCentavos);
 	}
 	printf("///           os valores informados são validos! valor do cheque: %d , %d \n",valorReal,valorCentavos);
-	return 0;
+
 	printf("///            Data de Recebimento do Cheque (DD/MM/AAAA): ");
 	scanf("%[0-9 /]", dataR);
 	getchar();

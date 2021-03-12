@@ -10,8 +10,8 @@ char telaCadastrarChequeEnviado(void) {
 	char digitoA[1];
 	char nConta[10];
 	char digitoC[1];
-	char valorChequeReal[10];
-	char valorChequeCentavos[2];
+	int Real;
+	int Centavos;
 	char dataEnvio[12];
 	char dataCobrir[12];
 
@@ -64,11 +64,22 @@ char telaCadastrarChequeEnviado(void) {
 	scanf("%[0-9]", digitoC);
 	getchar();
 	printf("///            Valor do cheque (Apenas o valor em real!!): R$");
-	scanf("%[0-9]", valorChequeReal);
+	scanf("%d", &Real);
 	getchar();
 	printf("///            Valor do cheque (Apenas o valor referente aos centavos!!): R$");
-	scanf("%[0-9]", valorChequeCentavos);
+	scanf("%d", &Centavos);
 	getchar();
+
+    while (!validarValor(Real, Centavos)){
+	printf("///           os valores informados não são validos! \n");
+	printf("///           tente novamente! \n"); 
+	printf("///           insira o valor em real: R$");
+	scanf("%d", &Real);
+    printf("///           insira o valor em centavos: C");
+	scanf("%d", &Centavos);
+	}
+	printf("///           os valores informados são validos! valor do cheque: %d , %d \n",Real, Centavos);
+
 	printf("///            Data de Envio (DD/MM/AAAA): ");
 	scanf("%[0-9 / ]", dataEnvio);
 	getchar();
