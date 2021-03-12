@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "validacoesUteis.h"
 
 
 char telaCadastrarChequeEnviado(void) {
-	char nChequeEnviado[5];
+	char numero[5];
 	char nomeDoBanco[30];
 	char nAgencia[10];
 	char digitoA[1];
@@ -33,8 +34,20 @@ char telaCadastrarChequeEnviado(void) {
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///                                                                       ///\n");
 	printf("///            Numero do cheque (EX: 0001): ");
-	scanf("%[0-9]" , nChequeEnviado);
+	scanf("%[0-9]" , numero);
 	getchar();
+
+    while (!Vnumero(numero)) {
+    printf("///               O numero informado é inválido!\n");
+    printf("///               Tente novamente...\n");
+    printf("///               Digite o numero do cheque: ");
+    scanf("%[^\n]", numero);
+    getchar();
+    }
+
+    printf("///               numero de cheque Lido: %s\n", numero);
+
+
 	printf("///            Nome Do Banco: ");
 	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeDoBanco);
 	getchar();

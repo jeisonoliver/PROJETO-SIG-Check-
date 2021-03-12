@@ -44,7 +44,6 @@ char telaCadastrarChequeRecebido(void) {
     }
 
     printf("///               numero de cheque Lido: %s\n", numero);
-    return 0;
 	
 	printf("///            Nome do Banco : ");
 	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeBanco);
