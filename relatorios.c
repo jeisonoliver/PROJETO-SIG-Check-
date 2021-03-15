@@ -1,8 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-char menuRecebimento(void) {
-	char op;
+char telaRealtorio1(void) {
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -16,31 +14,28 @@ char menuRecebimento(void) {
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
-	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
-	printf("///            |           MENU RECEBER CHEQUE             |              ///\n");
-	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
+	printf("///            |         PROPOSTA DE RELATORIO 1          |               ///\n");
+	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           1. Cadastrar um novo cheque recebido.                       ///\n");
-	printf("///           2. Pesquisar os dados de um cheque recebido.                ///\n");
-	printf("///           3. Atualizar o cadastro de um cheque.                       ///\n");
-	printf("///           4. Excluir um cheque do sistema.                            ///\n");
-	printf("///           0. Voltar ao menu anterior                                  ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada: ");
-	scanf("%c", &op);
-	getchar();
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
-	return op;
 }
 
 
-char menuEnvio(void) {
-	char op;
+
+char telaRealtorio2(void) {
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -54,31 +49,27 @@ char menuEnvio(void) {
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
-	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
-	printf("///            |           MENU ENVIAR CHEQUE              |              ///\n");
-	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
+	printf("///            |         PROPOSTA DE RELATORIO 2          |               ///\n");
+	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           1. Cadastrar um novo cheque enviado.                        ///\n");
-	printf("///           2. Pesquisar os dados de um cheque enviado.                 ///\n");
-	printf("///           3. Atualizar o cadastro de um cheque.                       ///\n");
-	printf("///           4. Excluir um cheque do sistema.                            ///\n");
-	printf("///           0. Voltar ao menu anterior                                  ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada: ");
-	scanf("%c", &op);
-	getchar();
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
-	return op;
 }
 
 
-char menuCliente(void) {
-	char op;
+char telaRealtorio3(void) {
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -92,31 +83,26 @@ char menuCliente(void) {
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
-	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
-	printf("///            |             MODULO CLIENTE                |              ///\n");
-	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
+	printf("///            |         PROPOSTA DE RELATORIO 3          |               ///\n");
+	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           1. Cadastrar um novo cliente.                               ///\n");
-	printf("///           2. Pesquisar os dados de um cliente.                        ///\n");
-	printf("///           3. Atualizar o cadastro de um cliente.                      ///\n");
-	printf("///           4. Excluir um cliente do sistema.                           ///\n");
-	printf("///           0. Voltar ao menu anterior                                  ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada: ");
-	scanf("%c", &op);
-	getchar();
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
-	return op;
 }
 
-
-char menuRelatorios(void) {
-	char op;
+char telaRealtorio4(void) {
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -130,24 +116,21 @@ char menuRelatorios(void) {
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
-	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
-	printf("///            |             MODULO RELATORIOS             |              ///\n");
-	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
+	printf("///            |         PROPOSTA DE RELATORIO 1          |               ///\n");
+	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           1. Relatorio 1.                                             ///\n");
-	printf("///           2. Relatorio 2.                                             ///\n");
-	printf("///           3. Relatorio 3.                                             ///\n");
-	printf("///           4. Relatorio 4.                                             ///\n");
-	printf("///           0. Voltar ao menu anterior                                  ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada: ");
-	scanf("%c", &op);
-	getchar();
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
-	return op;
 }

@@ -5,3 +5,5 @@ char menuRecebimento(void);
 char menuEnvio(void);
 
 char menuCliente(void);
+
+char menuRelatorios(void);

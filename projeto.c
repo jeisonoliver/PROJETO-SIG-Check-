@@ -13,6 +13,7 @@
 #include "enviar.h"
 #include "cliente.h"
 #include "menuprincipal.h"
+#include "relatorios.h"
 
 /// 
 /// Assinaturas das funções
@@ -27,6 +28,8 @@ void moduloRecebimento(void);
 void moduloEnvio(void);
 
 void moduloCliente(void);
+
+void moduloRelatorios(void);
 
 ///
 /// Programa Principal
@@ -44,6 +47,8 @@ int main(void) {
 			                        break;
 			case '4' :  telaSobre();
 			                        break;
+			case '5' :  moduloRelatorios();
+			                        break;						
 		}
 	} while (opcao != '0');
 	return 0;
@@ -72,6 +77,7 @@ char menuPrincipal(void) {
 	printf("///             2. Módulo Envio de Cheque                                 ///\n");
 	printf("///             3. Módulo clientes                                        ///\n");
 	printf("///             4. Informações sobre o sistema                            ///\n");
+	printf("///             5. Módulo de exibição de Relatórios                       ///\n");
 	printf("///             0. Encerra o programa                                     ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
@@ -166,6 +172,24 @@ void moduloCliente(void){
 			case '3' : telaAlterarCliente();
 											   break;
 			case '4' : telaExcluirCliente();
+											   break;
+			}
+	} while (opcao != '0');
+}
+
+
+void moduloRelatorios(void){
+	char opcao;
+	do {
+		opcao = menuRelatorios();
+		switch (opcao) {
+			case '1' : telaRealtorio1();
+											   break;
+			case '2' : telaRealtorio2();
+											   break;
+			case '3' : telaRealtorio3();
+											   break;
+			case '4' : telaRealtorio4();
 											   break;
 			}
 	} while (opcao != '0');
