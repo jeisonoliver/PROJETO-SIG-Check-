@@ -1,8 +1,20 @@
 #include <stdio.h>
 
 char telaRealtorio1(void) {
+	int Vcheque1;
+	int Vcheque2;
+	int Vcheque3;
+	int Vcheque4;
+	int Vcheque5;
+	int montante;
+	Vcheque1 = 10000;
+	Vcheque2 = 50000;
+	Vcheque3 = 15000;
+	Vcheque4 = 14500;
+	Vcheque5 = 9000;
+	montante = Vcheque1 + Vcheque2 + Vcheque3 + Vcheque4 + Vcheque5;
     system("clear");
-	printf("\n");
+	printf("\n"); 
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///             ||||||||||||||||||||||||||||||||||||||||||||              ///\n");
@@ -20,9 +32,9 @@ char telaRealtorio1(void) {
 	printf("///                                                                       ///\n");
 	printf("///                 Proposta de Reatorio numero 1:                        ///\n");
 	printf("///                                                                       ///\n");
-	printf("///            Montante de dinheiro recebido pela empresa através         ///\n");
-	printf("///            dos cheques que a empresa virá a receber dos seus          ///\n");
-	printf("///            clientes.                                                  ///\n");
+	printf("///              A EMPRESA SIG-INFO DEPOSITOU O MONTANTE DE:              ///\n");
+	printf("///                             %d R$                                     ///\n", montante);
+	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
@@ -36,6 +48,18 @@ char telaRealtorio1(void) {
 
 
 char telaRealtorio2(void) {
+	int Vcheque1;
+	int Vcheque2;
+	int Vcheque3;
+	int Vcheque4;
+	int Vcheque5;
+	int montante;
+	Vcheque1 = 30000;
+	Vcheque2 = 20000;
+	Vcheque3 = 12000;
+	Vcheque4 = 14550;
+	Vcheque5 = 9500;
+	montante = Vcheque1 + Vcheque2 + Vcheque3 + Vcheque4 + Vcheque5;
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -55,8 +79,8 @@ char telaRealtorio2(void) {
 	printf("///                                                                       ///\n");
 	printf("///                  Proposta de Reatorio numero 2:                       ///\n");
 	printf("///                                                                       ///\n");
-	printf("///          Montante de dinheiro depositado pela empresa através         ///\n");
-	printf("///          dos cheques que a empresa virá a enviar.                     ///\n");
+	printf("///              A EMPRESA SIG-INFO RECEBEU O MONTANTE DE:                ///\n");
+	printf("///                             %d R$                                     ///\n",montante);
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
