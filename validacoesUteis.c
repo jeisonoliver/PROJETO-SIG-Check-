@@ -52,7 +52,7 @@ return 1;
 int Vnumero (char numero[]){
 int tamanho;
 tamanho = strlen(numero);
-if (tamanho < 4 || tamanho > 5) {
+if (tamanho < 1) {
   return 0;
 }
 int i = 0;
