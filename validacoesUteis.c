@@ -67,3 +67,74 @@ while ( i < tamanho){
 }
 return 1;
 }
+
+//// Função para validar a entrada de um CPF! ////
+#include <string.h>
+
+int valCPF (char CPF[]){
+  int CPFint[11];
+  int t;
+  int numeroV;
+  int valorPart;
+  int V;
+  int restodiv;
+  int numeroV1;
+  int digito1;
+  int valorPart1;
+  int V1;
+  int restodiv1;
+  int digito2;
+
+t = strlen(CPF);
+  if(t != 11) {
+   return 0;
+  }
+for (int i = 0; i < 11; i++ ){
+  CPFint[i] = CPF[i] - 48;
+  }
+/// calculando se o 1° digito verificador é valido ///
+  numeroV = 10;
+  V = 0;
+  for (int i = 0; i < 9; i++){
+    valorPart = CPFint[i] * numeroV;
+    numeroV = numeroV - 1;
+    V = valorPart + V;
+  }
+  restodiv = V%11;
+
+if (restodiv < 2) {
+ digito1 = 0;
+}
+else if (restodiv >= 2 ){
+  digito1 = 11 - restodiv;
+}
+if (CPFint[9] == digito1){
+  return 1;
+}
+else{
+  return 0;
+}
+
+/// calculando se o 2° digito verificador é valido ///
+numeroV1 = 11;
+V1 = 0;
+for (int i = 0; i < 10; i++){
+    valorPart1 = CPFint[i] * numeroV1;
+    numeroV1 = numeroV1 - 1;
+    V1 = valorPart1 + V1;
+}
+  restodiv1 = V1%11;
+
+if (restodiv1 < 2) {
+ digito2 = 0;
+}
+else if (restodiv1 >= 2 ){
+  digito2 = 11 - restodiv1;
+}
+if (CPFint[10] == digito2){
+  return 1;
+}
+else{
+  return 0;
+}
+}

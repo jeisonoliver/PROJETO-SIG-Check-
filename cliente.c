@@ -4,9 +4,9 @@
 
 
 char telaCadastrarCliente(void) {
-	char CPF[30];
-	char nomeCliente[30];
-	char email[30];
+	char CPF[11];
+	char nomeCliente[51];
+	char email[51];
 	char dataNascimento[12];
 	char celular[10];
     system("clear");
@@ -27,8 +27,19 @@ char telaCadastrarCliente(void) {
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///                                                                       ///\n");
 	printf("///               CPF (APENAS NUMEROS): ");
-	scanf("%[0-9]", CPF);
+	scanf("%[^\n]", CPF);
 	getchar();
+
+    while (!valCPF(CPF)) {
+    printf ("Ocorreu um erro\n");
+    printf ("O CPF Digitado é invalido \n");
+    printf ("Insira novamente o CPF:\n");
+    scanf("%[^\n]", CPF);
+	getchar();
+    }
+
+    printf("O CPF digitado está correto!\n");
+
 	printf("///               Nome: ");
 	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeCliente);
 	getchar();
