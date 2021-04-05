@@ -6,8 +6,8 @@
 char telaCadastrarChequeRecebido(void) {
 	char numero[5];
 	char nomeBanco[30];
-	char agencia[10];
-	char numeroConta[10];
+	char agencia[5];
+	char numeroConta[12];
 	int valorReal;
 	int valorCentavos;
 	char dataR[10];
@@ -43,7 +43,7 @@ char telaCadastrarChequeRecebido(void) {
     getchar();
     }
 
-    printf("///               numero de cheque Lido: %s\n", numero);
+    printf("///               numero de cheque lido: %s\n", numero);
 	
 	printf("///            Nome do Banco : ");
 	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeBanco);
@@ -51,9 +51,29 @@ char telaCadastrarChequeRecebido(void) {
 	printf("///            Agencia (SEM O DIGITO) : ");
 	scanf("%[0-9]", agencia);
 	getchar();
+
+    while (!Vnumero(agencia)) {
+    printf("///               O numero da agencia informado é inválido!\n");
+    printf("///               Tente novamente...\n");
+    printf("///               Digite o numero da agencia novamente: ");
+    scanf("%[^\n]", agencia);
+    getchar();
+    }
+
 	printf("///            Digito Agencia: ");
 	scanf("%[0-9]", digitoA);
 	getchar();
+
+	while (!VDigito(digitoA)) {
+    printf("///               O digito informado é inválido!\n");
+    printf("///               Tente novamente...\n");
+    printf("///               Digite o digito da agencia novamente: ");
+    scanf("%[^\n]", digitoA);
+    getchar();
+    }
+
+    printf("O numero da agencia é %s-%s:\n", agencia , digitoA);
+
 	printf("///            Conta (SEM O DIGITO): ");
 	scanf("%[0-9]", numeroConta);
 	getchar();

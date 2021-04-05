@@ -28,41 +28,66 @@ if (tamanho < 9 || tamanho > 10) {
 if (celular[0] != '9') {
     return 0;
   }
-  else{
-    return 1;
-  }
-int i = 0;
+int i = 1;
 while ( i < tamanho){
   if (celular[i] < '0' && celular[i] > '9'){
     return 0;
-  } else if (celular[i] == '-'){
-    return 0;
-  }
-  else {
-  return 1;
   }
     i = i + 1;
 }
 return 1;
 }
 
-/// Função para validar a entrada de um numero qualquer, no caso usaremos para validar o numero do cheque! ///
+/// Função para validar a entrada de um numero de 4 digitos! será usada para validar o numero do cheque e o numero da agencia bancaria ///
 #include <string.h>
 
 int Vnumero (char numero[]){
 int tamanho;
 tamanho = strlen(numero);
+if (tamanho < 1 || tamanho > 4) {
+  return 0;
+}
+int i = 0;
+while ( i < tamanho){
+  if (numero[i] < '0' || numero[i] > '9'){
+    return 0;
+    }
+    i = i + 1;
+}
+return 1;
+}
+
+/// Função para valiadar o numero da conta bancaria do cliente ///
+#include <string.h>
+int VnumeroConta (char numeroC[]){
+int tamanho;
+tamanho = strlen(numeroC);
 if (tamanho < 1) {
   return 0;
 }
 int i = 0;
 while ( i < tamanho){
-  if (numero[i] < '0' && numero[i] > '9'){
+  if (numeroC[i] < '0' || numeroC[i] > '9'){
     return 0;
-  }else 
-  {
-  return 1;
-  }
+    }
+    i = i + 1;
+}
+return 1;
+}
+
+/// Função para validar um unico digito! será usada para validar os digitos da conta bancaria e da agencia bancaria ///
+#include <string.h>
+int VDigito (char numero[]){
+int tamanho;
+tamanho = strlen(numero);
+if (tamanho != 1) {
+  return 0;
+}
+int i = 0;
+while ( i < tamanho){
+  if (numero[i] < '0' || numero[i] > '9'){
+    return 0;
+    }
     i = i + 1;
 }
 return 1;
