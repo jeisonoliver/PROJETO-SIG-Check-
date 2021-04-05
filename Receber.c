@@ -72,8 +72,8 @@ char telaCadastrarChequeRecebido(void) {
     getchar();
     }
 
-    printf("O numero da agencia é %s-%s:\n", agencia , digitoA);
-
+    printf("///               O numero da agencia é %s-%s:\n", agencia , digitoA);
+ 
 	printf("///            Conta (SEM O DIGITO): ");
 	scanf("%[0-9]", numeroConta);
 	getchar();
