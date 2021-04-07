@@ -8,7 +8,7 @@ char telaCadastrarCliente(void) {
 	char nomeCliente[51];
 	char email[51];
 	char dataNascimento[12];
-	char celular[10];
+	char celular[11];
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");

@@ -18,3 +18,7 @@ int VnumeroConta (char []);
 /// assinatura da função que valida um unico digito ///
 
 int VDigito (char []);
+
+/// assinatura da função que valida um CPF ///
+
+int valCPF (char[]);
