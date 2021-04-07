@@ -22,10 +22,10 @@ if(valorReal < 0){
 int ntelefone (char celular[]){
 int tamanho;
 tamanho = strlen(celular);
-if (tamanho < 9 || tamanho > 10) {
+if (tamanho < 10 || tamanho > 11) {
   return 0;
 }
-if (celular[0] != '9') {
+if (celular[2] != '9') {
     return 0;
   }
 int i = 1;
