@@ -46,6 +46,17 @@ char telaCadastrarCliente(void) {
 	printf("///               E-mail: ");
 	scanf("%[a-z 0-9 @.]", email);
 	getchar();
+
+    while (!valEmail(email)){
+	printf ("///               Ocorreu um erro\n");
+    printf ("///               O email Digitado é invalido \n");
+    printf ("///               Insira novamente o email:\n");	
+	scanf("%[^\n]", email);
+	getchar();
+	}
+
+    printf("///               O email digitado está correto!\n");
+
 	printf("///               Data de Nascimento (DD / MM / AAAA): ");
 	scanf("%[0-9 /]", dataNascimento);
 	getchar();
