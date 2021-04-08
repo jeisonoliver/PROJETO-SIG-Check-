@@ -31,14 +31,14 @@ char telaCadastrarCliente(void) {
 	getchar();
 
     while (!valCPF(CPF)) {
-    printf ("Ocorreu um erro\n");
-    printf ("O CPF Digitado é invalido \n");
-    printf ("Insira novamente o CPF:\n");
+    printf ("///               Ocorreu um erro\n");
+    printf ("///               O CPF Digitado é invalido \n");
+    printf ("///               Insira novamente o CPF:\n");
     scanf("%[^\n]", CPF);
 	getchar();
     }
 
-    printf("O CPF digitado está correto!\n");
+    printf("///               O CPF digitado está correto!\n");
 
 	printf("///               Nome: ");
 	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeCliente);

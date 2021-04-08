@@ -22,3 +22,7 @@ int VDigito (char []);
 /// assinatura da função que valida um CPF ///
 
 int valCPF (char[]);
+
+/// assinatura da função que valida um email ///
+
+int valEmail (char []);

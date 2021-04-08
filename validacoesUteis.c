@@ -1,4 +1,5 @@
-
+int vaLetra (char);
+int vaNumero (char);
 /// Função para validar a entrada do valor do cheque ///
 
  
@@ -28,9 +29,9 @@ if (tamanho < 10 || tamanho > 11) {
 if (celular[2] != '9') {
     return 0;
   }
-int i = 1;
+int i = 0;
 while ( i < tamanho){
-  if (celular[i] < '0' && celular[i] > '9'){
+  if (!vaNumero(celular[i])){
     return 0;
   }
     i = i + 1;
@@ -49,7 +50,7 @@ if (tamanho < 1 || tamanho > 4) {
 }
 int i = 0;
 while ( i < tamanho){
-  if (numero[i] < '0' || numero[i] > '9'){
+  if (!vaNumero(numero[i])){
     return 0;
     }
     i = i + 1;
@@ -67,7 +68,7 @@ if (tamanho < 1) {
 }
 int i = 0;
 while ( i < tamanho){
-  if (numeroC[i] < '0' || numeroC[i] > '9'){
+  if (!vaNumero(numeroC[i])){
     return 0;
     }
     i = i + 1;
@@ -85,7 +86,7 @@ if (tamanho != 1) {
 }
 int i = 0;
 while ( i < tamanho){
-  if (numero[i] < '0' || numero[i] > '9'){
+  if (!vaNumero(numero[i])){
     return 0;
     }
     i = i + 1;
@@ -133,11 +134,8 @@ if (restodiv < 2) {
 else if (restodiv >= 2 ){
   digito1 = 11 - restodiv;
 }
-if (CPFint[9] == digito1){
+if (CPFint[9] != digito1){
   return 1;
-}
-else{
-  return 0;
 }
 
 /// calculando se o 2° digito verificador é valido ///
@@ -160,6 +158,60 @@ if (CPFint[10] == digito2){
   return 1;
 }
 else{
+  return 0;
+}
+}
+
+
+
+/// Função para validar a entrada de um email! ///
+
+# include <string.h>
+
+int valEmail (char email[]){
+int t;
+t = strlen(email);
+if (t == 0) {
+  return 0;
+}
+
+for (int i = 0; i < t; i++){
+  if (vaLetra(email[i])) {
+    continue;
+  } else if (vaNumero(email[i])){
+    continue;
+  }else if (email[i] == '.'){
+    continue;
+  }else if ( email[i] == '@'){
+    continue;
+  }else {
+    return 0;
+    }
+}
+return 1;
+}
+
+
+
+// assinatura das funções que validam uma letra e um numero //
+
+int vaLetra (char l) {
+if(l >= 'A' && l <= 'Z') {
+  return 1;
+}
+ else if (l >= 'a' && l <= 'z'){
+  return 1;
+}
+ else {
+  return 0;
+}
+}
+
+
+int vaNumero (char n){
+if (n >= '0' && n <= '9') {
+  return 1;
+} else {
   return 0;
 }
 }
