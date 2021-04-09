@@ -215,3 +215,24 @@ if (n >= '0' && n <= '9') {
   return 0;
 }
 }
+
+/// validação de nome propio sem acentos ///
+
+#include <string.h>
+
+int valNome (char nome[]){
+int t;
+t = strlen(nome);
+if (t == 0) {
+  return 0;
+}
+
+for (int i = 0; i < t; i++){
+  if (vaLetra(nome[i])) {
+    continue;
+  }else {
+    return 0;
+    }
+}
+return 1;
+}

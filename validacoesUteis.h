@@ -1,4 +1,3 @@
-
 // Assinatura da função  validar valor//
 
 int validarValor(int, int);
@@ -26,3 +25,7 @@ int valCPF (char[]);
 /// assinatura da função que valida um email ///
 
 int valEmail (char []);
+
+/// assinatura da função que valida um nome ///
+
+int valNome (char []);
