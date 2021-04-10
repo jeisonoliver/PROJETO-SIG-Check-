@@ -5,7 +5,7 @@
 
 char telaCadastrarCliente(void) {
 	char CPF[11];
-	char nomeCliente[51];
+	char nome[51];
 	char email[51];
 	char dataNascimento[12];
 	char celular[11];
@@ -33,16 +33,27 @@ char telaCadastrarCliente(void) {
     while (!valCPF(CPF)) {
     printf ("///               Ocorreu um erro\n");
     printf ("///               O CPF Digitado é invalido \n");
-    printf ("///               Insira novamente o CPF:\n");
+    printf ("///               Insira o CPF novamente:\n");
     scanf("%[^\n]", CPF);
 	getchar();
     }
 
-    printf("///               O CPF digitado está correto!\n");
+    printf("///               O CPF: %s está correto!\n" , CPF);
 
-	printf("///               Nome: ");
-	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeCliente);
+	printf("///               Nome: (SEM ACENTOS) ");
+	scanf("%[A-Z a-z]", nome);
 	getchar();
+
+    while (valNome(nome)){
+	printf ("///               Ocorreu um erro\n");
+	printf ("///               O nome Digitado é invalido \n");
+	printf ("///               Insira o seu nome novamente (SEM ACENTOS):\n");
+	scanf("%[^\n]", nome);
+	getchar();
+	}
+
+    printf("///               O nome %s está correto\n", nome);
+
 	printf("///               E-mail: ");
 	scanf("%[a-z 0-9 @.]", email);
 	getchar();
@@ -50,16 +61,17 @@ char telaCadastrarCliente(void) {
     while (!valEmail(email)){
 	printf ("///               Ocorreu um erro\n");
     printf ("///               O email Digitado é invalido \n");
-    printf ("///               Insira novamente o email:\n");	
+    printf ("///               Insira seu email novamente:\n");	
 	scanf("%[^\n]", email);
 	getchar();
 	}
 
-    printf("///               O email digitado está correto!\n");
+    printf("///               O email: %s está correto!\n" , email);
 
 	printf("///               Data de Nascimento (DD / MM / AAAA): ");
 	scanf("%[0-9 /]", dataNascimento);
 	getchar();
+
 	printf("///               Celular (APENAS NUMEROS): ");
 	scanf("%[^\n]", celular);
 	getchar();
@@ -67,13 +79,12 @@ char telaCadastrarCliente(void) {
     while (!ntelefone(celular)) {
     printf("///               O numero informado é inválido!\n");
     printf("///               Tente novamente...\n");
-    printf("///               Digite seu numero de celular: ");
+    printf("///               Digite seu numero de celular novamente: ");
     scanf("%[^\n]", celular);
     getchar();
     }
 
-    printf("///               telefone Lido: %s\n", celular);
-    return 0;
+    printf("///               O numero de telefone %s está correto \n", celular);
 
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
