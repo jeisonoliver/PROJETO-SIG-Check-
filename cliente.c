@@ -2,13 +2,17 @@
 #include <stdlib.h>
 #include "validacoesUteis.h"
 
+struct cadastro {
+char CPF[11];
+char nome[51];
+char email[51];
+char dataNascimento[12];
+char celular[11];
+};
 
 char telaCadastrarCliente(void) {
-	char CPF[11];
-	char nome[51];
-	char email[51];
-	char dataNascimento[12];
-	char celular[11];
+	struct cadastro cliente;
+	
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -27,64 +31,64 @@ char telaCadastrarCliente(void) {
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///                                                                       ///\n");
 	printf("///               CPF (APENAS NUMEROS): ");
-	scanf("%[^\n]", CPF);
+	scanf("%11[^\n]",cliente.CPF);
 	getchar();
 
-    while (!valCPF(CPF)) {
+    while (!valCPF(cliente.CPF)) {
     printf ("///               Ocorreu um erro\n");
     printf ("///               O CPF Digitado é invalido \n");
     printf ("///               Insira o CPF novamente:\n");
-    scanf("%[^\n]", CPF);
+    scanf("%11[^\n]", cliente.CPF);
 	getchar();
     }
 
-    printf("///               O CPF: %s está correto!\n" , CPF);
+    printf("///               O CPF: %s está correto!\n" , cliente.CPF);
 
 	printf("///               Nome: (SEM ACENTOS) ");
-	scanf("%[A-Z a-z]", nome);
-	getchar();
+	scanf("%[A-Z a-z]", cliente.nome);
+    getchar();
 
-    while (valNome(nome)){
+    while (valNome(cliente.nome)){
 	printf ("///               Ocorreu um erro\n");
 	printf ("///               O nome Digitado é invalido \n");
 	printf ("///               Insira o seu nome novamente (SEM ACENTOS):\n");
-	scanf("%[^\n]", nome);
+	scanf("%[^\n]", cliente.nome);
 	getchar();
 	}
 
-    printf("///               O nome %s está correto\n", nome);
+    printf("///               O nome %s está correto\n", cliente.nome);
 
 	printf("///               E-mail: ");
-	scanf("%[a-z 0-9 @.]", email);
+	scanf("%[a-z 0-9 @.]", cliente.email);
 	getchar();
 
-    while (!valEmail(email)){
+    while (!valEmail(cliente.email)){
 	printf ("///               Ocorreu um erro\n");
     printf ("///               O email Digitado é invalido \n");
     printf ("///               Insira seu email novamente:\n");	
-	scanf("%[^\n]", email);
+	scanf("%[^\n]", cliente.email);
 	getchar();
 	}
 
-    printf("///               O email: %s está correto!\n" , email);
+    printf("///               O email: %s está correto!\n" , cliente.email);
 
 	printf("///               Data de Nascimento (DD / MM / AAAA): ");
-	scanf("%[0-9 /]", dataNascimento);
+	scanf("%[0-9 /]", cliente.dataNascimento);
 	getchar();
 
 	printf("///               Celular (APENAS NUMEROS): ");
-	scanf("%[^\n]", celular);
+	scanf("%[^\n]", cliente.celular);
 	getchar();
 
-    while (!ntelefone(celular)) {
+    while (!ntelefone(cliente.celular)) {
     printf("///               O numero informado é inválido!\n");
     printf("///               Tente novamente...\n");
     printf("///               Digite seu numero de celular novamente: ");
-    scanf("%[^\n]", celular);
+    scanf("%[^\n]", cliente.celular);
     getchar();
     }
 
-    printf("///               O numero de telefone %s está correto \n", celular);
+    printf("///               O numero de telefone %s está correto \n", cliente.celular);
 
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
