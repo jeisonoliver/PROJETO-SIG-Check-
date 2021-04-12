@@ -1,19 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "validacoesUteis.h"
+#include "Receber.h"
+
+typedef struct receber Receber;
 
 
 char telaCadastrarChequeRecebido(void) {
-	char numero[5];
-	char nomeBanco[30];
-	char agencia[5];
-	char numeroConta[12];
-	int valorReal;
-	int valorCentavos;
-	char dataR[10];
-	char dataV[10];
-	char digitoA[1];
-	char digitoC[1];
+    Receber *rec;
+    
+	rec = (Receber*) malloc(sizeof(Receber));
+
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -32,77 +29,77 @@ char telaCadastrarChequeRecebido(void) {
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///                                                                       ///\n");
 	printf("///            Numero do cheque (EX:0001): ");
-	scanf("%[0-9]", numero);
+	scanf("%[0-9]", rec->numero);
 	getchar();
 
-    while (!Vnumero(numero)) {
+    while (!Vnumero(rec->numero)) {
     printf("///               O numero informado é inválido!\n");
     printf("///               Tente novamente...\n");
     printf("///               Digite o numero do cheque: ");
-    scanf("%[^\n]", numero);
+    scanf("%[^\n]", rec->numero);
     getchar();
     }
 
-    printf("///               numero de cheque lido: %s\n", numero);
+    printf("///               numero de cheque lido: %s\n", rec->numero);
 	
 	printf("///            Nome do Banco : ");
-	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeBanco);
+	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", rec->nomeBanco);
 	getchar();
 	printf("///            Agencia (SEM O DIGITO) : ");
-	scanf("%[0-9]", agencia);
+	scanf("%[0-9]", rec->agencia);
 	getchar();
 
-    while (!Vnumero(agencia)) {
+    while (!Vnumero(rec->agencia)) {
     printf("///               O numero da agencia informado é inválido!\n");
     printf("///               Tente novamente...\n");
     printf("///               Digite o numero da agencia novamente: ");
-    scanf("%[^\n]", agencia);
+    scanf("%[^\n]", rec->agencia);
     getchar();
     }
 
 	printf("///            Digito Agencia: ");
-	scanf("%[0-9]", digitoA);
+	scanf("%[0-9]", rec->digitoA);
 	getchar();
 
-	while (!VDigito(digitoA)) {
+	while (!VDigito(rec->digitoA)) {
     printf("///               O digito informado é inválido!\n");
     printf("///               Tente novamente...\n");
     printf("///               Digite o digito da agencia novamente: ");
-    scanf("%[^\n]", digitoA);
+    scanf("%[^\n]", rec->digitoA);
     getchar();
     }
 
-    printf("///               O numero da agencia é %s-%s:\n", agencia , digitoA);
+    printf("///               O numero da agencia é %s-%s:\n", rec->agencia , rec->digitoA);
  
 	printf("///            Conta (SEM O DIGITO): ");
-	scanf("%[0-9]", numeroConta);
+	scanf("%[0-9]", rec->numeroConta);
 	getchar();
 	printf("///            Digito Conta: ");
-	scanf("%[0-9]", digitoC);
+	scanf("%[0-9]", rec->digitoC);
 	getchar();
 	printf("///            Valor do cheque (apenas o valor em real!!): R$");
-	scanf("%d", &valorReal);
+	scanf("%d", &rec->valorReal);
 	getchar();
 	printf("///            Valor do cheque (apenas o valor referente aos centavos!!): R$");
-	scanf("%d", &valorCentavos);
+	scanf("%d", &rec->valorCentavos);
 	getchar();
-	while (!validarValor(valorReal, valorCentavos)){
+	while (!validarValor(rec->valorReal, rec->valorCentavos)){
 	printf("///           os valores informados não são validos! \n");
 	printf("///           tente novamente! \n"); 
 	printf("///           insira o valor em real: R$");
-	scanf("%d", &valorReal);
+	scanf("%d", &rec->valorReal);
 	getchar();
     printf("///           insira o valor em centavos: C");
-	scanf("%d", &valorCentavos);
+	scanf("%d", &rec->valorCentavos);
 	getchar();
 	}
-	printf("///           os valores informados são validos! valor do cheque: %d , %d \n",valorReal,valorCentavos);
+	printf("///           os valores informados são validos! valor do cheque: %d , %d \n",rec->valorReal,rec->valorCentavos);
 
 	printf("///            Data de Recebimento do Cheque (DD/MM/AAAA): ");
-	scanf("%[0-9 /]", dataR);
+	scanf("%[0-9 /]", rec->dataR);
 	getchar();
 	printf("///            Data de Vencimento do Cheque (DD/MM/AAAA): ");
-	scanf("%[0-9 /]", dataV);
+	scanf("%[0-9 /]", rec->dataV);
 	getchar();
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");

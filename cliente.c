@@ -1,18 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "validacoesUteis.h"
+#include "cliente.h"
 
-struct cadastro {
-char CPF[11];
-char nome[51];
-char email[51];
-char dataNascimento[12];
-char celular[11];
-};
+typedef struct cliente Cliente;
+
 
 char telaCadastrarCliente(void) {
-	struct cadastro cliente;
-	
+	Cliente *clt;
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -30,75 +25,80 @@ char telaCadastrarCliente(void) {
 	printf("///               |           CADASTRAR CLIENTE              |            ///\n");
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///                                                                       ///\n");
+
+	clt = (Cliente*) malloc(sizeof(Cliente));
 	printf("///               CPF (APENAS NUMEROS): ");
-	scanf("%11[^\n]",cliente.CPF);
+	scanf("%11[^\n]", clt->CPF);
 	getchar();
 
-    while (!valCPF(cliente.CPF)) {
+    while (!valCPF(clt->CPF)) {
     printf ("///               Ocorreu um erro\n");
     printf ("///               O CPF Digitado é invalido \n");
     printf ("///               Insira o CPF novamente:\n");
-    scanf("%11[^\n]", cliente.CPF);
+    scanf("%11[^\n]", clt->CPF);
 	getchar();
     }
 
-    printf("///               O CPF: %s está correto!\n" , cliente.CPF);
+    printf("///               O CPF: %s está correto!\n" , clt->CPF);
 
 	printf("///               Nome: (SEM ACENTOS) ");
-	scanf("%[A-Z a-z]", cliente.nome);
+	scanf("%[A-Z a-z]", clt->nome);
     getchar();
 
-    while (valNome(cliente.nome)){
+    while (valNome(clt->nome)){
 	printf ("///               Ocorreu um erro\n");
 	printf ("///               O nome Digitado é invalido \n");
 	printf ("///               Insira o seu nome novamente (SEM ACENTOS):\n");
-	scanf("%[^\n]", cliente.nome);
+	scanf("%[^\n]", clt->nome);
 	getchar();
 	}
 
-    printf("///               O nome %s está correto\n", cliente.nome);
+    printf("///               O nome %s está correto\n", clt->nome);
 
 	printf("///               E-mail: ");
-	scanf("%[a-z 0-9 @.]", cliente.email);
+	scanf("%[a-z 0-9 @.]", clt->email);
 	getchar();
 
-    while (!valEmail(cliente.email)){
+    while (!valEmail(clt->email)){
 	printf ("///               Ocorreu um erro\n");
     printf ("///               O email Digitado é invalido \n");
     printf ("///               Insira seu email novamente:\n");	
-	scanf("%[^\n]", cliente.email);
+	scanf("%[^\n]", clt->email);
 	getchar();
 	}
 
-    printf("///               O email: %s está correto!\n" , cliente.email);
+    printf("///               O email: %s está correto!\n" , clt->email);
 
 	printf("///               Data de Nascimento (DD / MM / AAAA): ");
-	scanf("%[0-9 /]", cliente.dataNascimento);
+	scanf("%[0-9 /]", clt->dataNascimento);
 	getchar();
 
 	printf("///               Celular (APENAS NUMEROS): ");
-	scanf("%[^\n]", cliente.celular);
+	scanf("%[^\n]", clt->celular);
 	getchar();
 
-    while (!ntelefone(cliente.celular)) {
+    while (!ntelefone(clt->celular)) {
     printf("///               O numero informado é inválido!\n");
     printf("///               Tente novamente...\n");
     printf("///               Digite seu numero de celular novamente: ");
-    scanf("%[^\n]", cliente.celular);
+    scanf("%[^\n]", clt->celular);
     getchar();
     }
 
-    printf("///               O numero de telefone %s está correto \n", cliente.celular);
+    printf("///               O numero de telefone %s está correto \n", clt->celular);
+
+	
 
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	free (clt);
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
 
-char telaPesquisarCliente(void) {
+char telaPesquisarCliente(void){
 	char pesquisarCPF[15];
     system("clear");
 	printf("\n");

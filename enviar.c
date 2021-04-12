@@ -1,21 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "validacoesUteis.h"
+#include "enviar.h"
 
+
+typedef struct enviar Enviar;
 
 char telaCadastrarChequeEnviado(void) {
-	char numero[5];
-	char nomeDoBanco[30];
-	char nAgencia[10];
-	char digitoA[1];
-	char nConta[10];
-	char digitoC[1];
-	int Real;
-	int Centavos;
-	char dataEnvio[12];
-	char dataCobrir[12];
-
-
+    Enviar *env;
+    
+    env = (Enviar*) malloc(sizeof(Enviar));
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -34,61 +28,62 @@ char telaCadastrarChequeEnviado(void) {
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///                                                                       ///\n");
 	printf("///            Numero do cheque (EX: 0001): ");
-	scanf("%[0-9]" , numero);
+	scanf("%[0-9]" , env->numero);
 	getchar();
 
-    while (!Vnumero(numero)) {
+    while (!Vnumero(env->numero)) {
     printf("///               O numero informado é inválido!\n");
     printf("///               Tente novamente...\n");
     printf("///               Digite o numero do cheque: ");
-    scanf("%[^\n]", numero);
+    scanf("%[^\n]", env->numero);
     getchar();
     }
 
-    printf("///               numero de cheque Lido: %s\n", numero);
+    printf("///               numero de cheque Lido: %s\n", env->numero);
 
 
 	printf("///            Nome Do Banco: ");
-	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeDoBanco);
+	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", env->nomeDoBanco);
 	getchar();
 	printf("///            Agencia (SEM O DIGITO): ");
-	scanf("%[0-9 - ]", nAgencia);
+	scanf("%[0-9 - ]", env->nAgencia);
 	getchar();
 	printf("///            Digito Agencia: ");
-	scanf("%[0-9]", digitoA);
+	scanf("%[0-9]", env->digitoA);
 	getchar();
 	printf("///            Conta (SEM O DIGITO): ");
-	scanf("%[0-9 - ]", nConta);
+	scanf("%[0-9 - ]", env->nConta);
 	getchar();
 	printf("///            Digito Conta: ");
-	scanf("%[0-9]", digitoC);
+	scanf("%[0-9]", env->digitoC);
 	getchar();
 	printf("///            Valor do cheque (Apenas o valor em real!!): R$");
-	scanf("%d", &Real);
+	scanf("%d", &env->Real);
 	getchar();
 	printf("///            Valor do cheque (Apenas o valor referente aos centavos!!): R$");
-	scanf("%d", &Centavos);
+	scanf("%d", &env->Centavos);
 	getchar();
 
-    while (!validarValor(Real, Centavos)){
+    while (!validarValor(env->Real, env->Centavos)){
 	printf("///           os valores informados não são validos! \n");
 	printf("///           tente novamente! \n"); 
 	printf("///           insira o valor em real: R$");
-	scanf("%d", &Real);
+	scanf("%d", &env->Real);
     printf("///           insira o valor em centavos: C");
-	scanf("%d", &Centavos);
+	scanf("%d", &env->Centavos);
 	}
-	printf("///           os valores informados são validos! valor do cheque: %d , %d \n",Real, Centavos);
+	printf("///           os valores informados são validos! valor do cheque: %d , %d \n",env->Real, env->Centavos);
 
 	printf("///            Data de Envio (DD/MM/AAAA): ");
-	scanf("%[0-9 / ]", dataEnvio);
+	scanf("%[0-9 / ]", env->dataEnvio);
 	getchar();
 	printf("///            Data Para Cobrir o Valor do Cheque(vencimento) (DD/MM/AAAA): ");
-	scanf("%[0-9 / ]", dataCobrir);
+	scanf("%[0-9 / ]", env->dataCobrir);
 	getchar();
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
+	free (env);
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
