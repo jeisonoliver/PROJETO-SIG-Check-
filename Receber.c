@@ -40,11 +40,23 @@ char telaCadastrarChequeRecebido(void) {
     getchar();
     }
 
-    printf("///               numero de cheque lido: %s\n", rec->numero);
+    printf("///               O numero %s é valido\n", rec->numero);
 	
-	printf("///            Nome do Banco : ");
+	printf("///            Nome do Banco (SEM ACENTOS): ");
 	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", rec->nomeBanco);
 	getchar();
+
+    while (!valNome(rec->nomeBanco))
+	{
+	printf("///               O nome informado é inválido!\n");
+    printf("///               Tente novamente...\n");
+    printf("///               Digite o nome do banco novamente: ");
+	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", rec->nomeBanco);
+	getchar();
+	}
+	
+	printf("///               O nome %s é valido\n", rec->nomeBanco);
+
 	printf("///            Agencia (SEM O DIGITO) : ");
 	scanf("%[0-9]", rec->agencia);
 	getchar();
@@ -69,14 +81,35 @@ char telaCadastrarChequeRecebido(void) {
     getchar();
     }
 
-    printf("///               O numero da agencia é %s-%s:\n", rec->agencia , rec->digitoA);
+    printf("///               A agencia é %s-%s valida:\n", rec->agencia , rec->digitoA);
  
 	printf("///            Conta (SEM O DIGITO): ");
 	scanf("%[0-9]", rec->numeroConta);
 	getchar();
+
+    while(!VnumeroConta(rec->numeroConta)) {
+	printf("///               O numero informado é inválido!\n");
+    printf("///               Tente novamente...\n");
+    printf("///               Digite o numero da conta novamente: ");
+	scanf("%[0-9 - ]", rec->numeroConta);
+	getchar();	
+	}
+
 	printf("///            Digito Conta: ");
 	scanf("%[0-9]", rec->digitoC);
 	getchar();
+
+    while (!VDigito(rec->digitoC))
+	{
+	printf("///               O digito informado é inválido!\n");
+    printf("///               Tente novamente...\n");
+    printf("///               Digite o digito da agencia novamente: ");
+	scanf("%[0-9]", rec->digitoC);
+	getchar();
+	}
+
+	printf("///               A conta %s-%s é valida", rec->numeroConta,rec->digitoC);
+
 	printf("///            Valor do cheque (apenas o valor em real!!): R$");
 	scanf("%d", &rec->valorReal);
 	getchar();

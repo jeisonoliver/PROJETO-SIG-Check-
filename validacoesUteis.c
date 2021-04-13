@@ -230,7 +230,9 @@ if (t == 0) {
 for (int i = 0; i < t; i++){
   if (vaLetra(nome[i])) {
     continue;
-  }else {
+  }else if (nome[i] == ' '){
+    continue;
+  }else{
     return 0;
     }
 }

@@ -34,29 +34,79 @@ char telaCadastrarChequeEnviado(void) {
     while (!Vnumero(env->numero)) {
     printf("///               O numero informado é inválido!\n");
     printf("///               Tente novamente...\n");
-    printf("///               Digite o numero do cheque: ");
+    printf("///               Digite o numero do cheque novamente: ");
     scanf("%[^\n]", env->numero);
     getchar();
     }
 
-    printf("///               numero de cheque Lido: %s\n", env->numero);
+    printf("///               O numero %s é valido!\n", env->numero);
 
 
 	printf("///            Nome Do Banco: ");
 	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", env->nomeDoBanco);
 	getchar();
+
+    while (!valNome(env->nomeDoBanco)) {
+	printf("///               O nome informado é inválido!\n");
+    printf("///               Tente novamente...\n");
+    printf("///               Digite o nome do banco novamente: ");
+	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", env->nomeDoBanco);
+	getchar();
+	}
+
+    printf("///               O nome %s é valido!", env->nomeDoBanco);
+
 	printf("///            Agencia (SEM O DIGITO): ");
 	scanf("%[0-9 - ]", env->nAgencia);
 	getchar();
+
+    while (!Vnumero(env->nAgencia)){
+	printf("///               O numero informado é inválido!\n");
+    printf("///               Tente novamente...\n");
+    printf("///               Digite o numero da agencia novamente: ");	
+	scanf("%[0-9 - ]", env->nAgencia);
+	getchar();
+	}
 	printf("///            Digito Agencia: ");
 	scanf("%[0-9]", env->digitoA);
 	getchar();
+
+    while (!VDigito(env->digitoA)){
+	printf("///               O digito informado é inválido!\n");
+    printf("///               Tente novamente...\n");
+    printf("///               Digite o digito da agencia novamente: ");
+	scanf("%[0-9]", env->digitoA);
+	getchar();
+	}
+	
+	printf ("///               A agencia %s-%s é valida", env->nAgencia,env->digitoA);
+
 	printf("///            Conta (SEM O DIGITO): ");
 	scanf("%[0-9 - ]", env->nConta);
 	getchar();
+
+    while(!VnumeroConta(env->nConta)) {
+	printf("///               O numero informado é inválido!\n");
+    printf("///               Tente novamente...\n");
+    printf("///               Digite o numero da conta novamente: ");
+	scanf("%[0-9 - ]", env->nConta);
+	getchar();	
+	}
 	printf("///            Digito Conta: ");
 	scanf("%[0-9]", env->digitoC);
 	getchar();
+
+    while (!VDigito(env->digitoC))
+	{
+	printf("///               O digito informado é inválido!\n");
+    printf("///               Tente novamente...\n");
+    printf("///               Digite o digito da agencia novamente: ");
+	scanf("%[0-9]", env->digitoC);
+	getchar();
+	}
+
+	printf("///               A conta %s-%s é valida", env->nConta,env->digitoC);
+
 	printf("///            Valor do cheque (Apenas o valor em real!!): R$");
 	scanf("%d", &env->Real);
 	getchar();

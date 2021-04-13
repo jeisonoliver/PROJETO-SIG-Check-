@@ -27,15 +27,16 @@ char telaCadastrarCliente(void) {
 	printf("///                                                                       ///\n");
 
 	clt = (Cliente*) malloc(sizeof(Cliente));
+	
 	printf("///               CPF (APENAS NUMEROS): ");
-	scanf("%11[^\n]", clt->CPF);
+	scanf("%[^\n]", clt->CPF);
 	getchar();
 
     while (!valCPF(clt->CPF)) {
     printf ("///               Ocorreu um erro\n");
     printf ("///               O CPF Digitado é invalido \n");
     printf ("///               Insira o CPF novamente:\n");
-    scanf("%11[^\n]", clt->CPF);
+    scanf("%[^\n]", clt->CPF);
 	getchar();
     }
 
