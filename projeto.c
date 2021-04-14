@@ -131,7 +131,7 @@ void moduloRecebimento(void){
 	do {
 		opcao = menuRecebimento();
 		switch (opcao) {
-			case '1' : telaCadastrarChequeRecebido();
+			case '1' : cadastrarChequeRecebido();
 											   break;
 			case '2' : telaConsultarChequeRecebido();
 											   break;
@@ -148,7 +148,7 @@ void moduloEnvio(void){
 	do {
 		opcao = menuEnvio();
 		switch (opcao) {
-			case '1' : telaCadastrarChequeEnviado();
+			case '1' : cadastrarChequeEnviado();
 											   break;
 			case '2' : telaConsultarChequeEnviado();
 											   break;

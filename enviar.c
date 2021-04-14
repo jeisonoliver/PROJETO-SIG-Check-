@@ -6,7 +6,7 @@
 
 typedef struct enviar Enviar;
 
-char telaCadastrarChequeEnviado(void) {
+Enviar* telaCadastrarChequeEnviado(void) {
     Enviar *env;
     
     env = (Enviar*) malloc(sizeof(Enviar));
@@ -54,7 +54,7 @@ char telaCadastrarChequeEnviado(void) {
 	getchar();
 	}
 
-    printf("///               O nome %s é valido!", env->nomeDoBanco);
+    printf("///               O nome %s é valido!\n", env->nomeDoBanco);
 
 	printf("///            Agencia (SEM O DIGITO): ");
 	scanf("%[0-9 - ]", env->nAgencia);
@@ -79,7 +79,7 @@ char telaCadastrarChequeEnviado(void) {
 	getchar();
 	}
 	
-	printf ("///               A agencia %s-%s é valida", env->nAgencia,env->digitoA);
+	printf ("///               A agencia %s-%s é valida\n", env->nAgencia,env->digitoA);
 
 	printf("///            Conta (SEM O DIGITO): ");
 	scanf("%[0-9 - ]", env->nConta);
@@ -105,7 +105,7 @@ char telaCadastrarChequeEnviado(void) {
 	getchar();
 	}
 
-	printf("///               A conta %s-%s é valida", env->nConta,env->digitoC);
+	printf("///               A conta %s-%s é valida\n", env->nConta,env->digitoC);
 
 	printf("///            Valor do cheque (Apenas o valor em real!!): R$");
 	scanf("%d", &env->Real);
@@ -133,12 +133,37 @@ char telaCadastrarChequeEnviado(void) {
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
-	free (env);
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return env;
 }
 
-char telaConsultarChequeEnviado(void) {
+void cadastrarChequeEnviado (void){
+Enviar *env;
+
+env = telaCadastrarChequeEnviado();
+
+gravarDadosEnviados(env);
+
+free(env);
+}
+
+
+
+void gravarDadosEnviados (Enviar* env){
+FILE* arq;
+
+arq = fopen("enviados.dat", "ab");
+if (arq == NULL) {
+printf("///            NÃO FOI POSSIVEL ABRIR O ARQUIVO");
+printf("///            NÃO É POSSIVEL SEGUIR COM O PROGRAMA");
+exit(1);
+}
+fwrite(env, sizeof(Enviar), 1, arq);
+fclose(arq);
+}
+
+void telaConsultarChequeEnviado(void) {
 	char numeroChequeConsulta[5];
     system("clear");
 	printf("\n");
@@ -174,7 +199,7 @@ char telaConsultarChequeEnviado(void) {
 	getchar();
 }
 
-char telaAlterarChequeEnviado(void) {
+void telaAlterarChequeEnviado(void) {
 	char op;
 	char numeroChequeAlterar[5];
     system("clear");
@@ -213,7 +238,7 @@ char telaAlterarChequeEnviado(void) {
 	getchar();
 }
 
-char telaExcluirChequeEnviado(void) {
+void telaExcluirChequeEnviado(void) {
 	char numeroChequeExcluir[5];
     system("clear");
 	printf("\n");

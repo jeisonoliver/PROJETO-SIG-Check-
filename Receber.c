@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "validacoesUteis.h"
 #include "Receber.h"
 
@@ -108,7 +109,7 @@ Receber* telaCadastrarChequeRecebido(void) {
 	getchar();
 	}
 
-	printf("///               A conta %s-%s é valida", rec->numeroConta,rec->digitoC);
+	printf("///               A conta %s-%s é valida \n", rec->numeroConta,rec->digitoC);
 
 	printf("///            Valor do cheque (apenas o valor em real!!): R$");
 	scanf("%d", &rec->valorReal);
@@ -160,7 +161,7 @@ free (rec);
 void gravarDados (Receber* rec){
 FILE* arq;
 
-arq = fopen("recebidos.dat","ab");
+arq = fopen("recebidos.dat", "ab");
 if (arq == NULL) {
 printf("///            NÃO FOI POSSIVEL ABRIR O ARQUIVO");
 printf("///            NÃO É POSSIVEL SEGUIR COM O PROGRAMA");
@@ -171,7 +172,7 @@ fclose(arq);
 }
 
 
-char telaConsultarChequeRecebido(void) {
+void telaConsultarChequeRecebido(void) {
 	char nChequeConsulta[5];
     system("clear");
 	printf("\n");
@@ -207,7 +208,7 @@ char telaConsultarChequeRecebido(void) {
 	getchar();
 }
 
-char telaAlterarChequeRecebido(void) {
+void telaAlterarChequeRecebido(void) {
 	char op;
 	char nChequeAlterar[5];
     system("clear");
@@ -246,7 +247,7 @@ char telaAlterarChequeRecebido(void) {
 	getchar();
 }
 
-char telaExcluirChequeRecebido(void) {
+void telaExcluirChequeRecebido(void) {
 	char nChequeExcluir[5];
     system("clear");
 	printf("\n");

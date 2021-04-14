@@ -16,10 +16,14 @@ struct enviar{
 
 // Função para envio de cheque //
 
-char telaCadastrarChequeEnviado(void);
+Enviar* telaCadastrarChequeEnviado(void);
 
-char telaConsultarChequeEnviado(void);
+void telaConsultarChequeEnviado(void);
 
-char telaAlterarChequeEnviado(void);
+void telaAlterarChequeEnviado(void);
 
-char telaExcluirChequeEnviado(void);
+void telaExcluirChequeEnviado(void);
+
+void cadastrarChequeEnviado (void);
+
+void gravarDadosEnviados (Enviar*);

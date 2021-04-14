@@ -17,11 +17,11 @@ typedef struct receber Receber;
 
 Receber* telaCadastrarChequeRecebido(void);
 
-char telaConsultarChequeRecebido(void);
+void telaConsultarChequeRecebido(void);
 
-char telaAlterarChequeRecebido(void);
+void telaAlterarChequeRecebido(void);
 
-char telaExcluirChequeRecebido(void);
+void telaExcluirChequeRecebido(void);
 
 void gravarDados (Receber*);
 

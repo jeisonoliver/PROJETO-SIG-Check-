@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-char telaRealtorio1(void) {
+void telaRealtorio1(void) {
 	int Vcheque1;
 	int Vcheque2;
 	int Vcheque3;
@@ -47,7 +48,7 @@ char telaRealtorio1(void) {
 
 
 
-char telaRealtorio2(void) {
+void telaRealtorio2(void) {
 	int Vcheque1;
 	int Vcheque2;
 	int Vcheque3;
@@ -93,7 +94,7 @@ char telaRealtorio2(void) {
 }
 
 
-char telaRealtorio3(void) {
+void telaRealtorio3(void) {
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -126,7 +127,7 @@ char telaRealtorio3(void) {
 	getchar();
 }
 
-char telaRealtorio4(void) {
+void telaRealtorio4(void) {
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");

@@ -1,7 +1,7 @@
-char telaRealtorio1(void);
+void telaRealtorio1(void);
 
-char telaRealtorio2(void);
+void telaRealtorio2(void);
 
-char telaRealtorio3(void);
+void telaRealtorio3(void);
 
-char telaRealtorio4(void);
+void telaRealtorio4(void);
