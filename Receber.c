@@ -6,7 +6,7 @@
 typedef struct receber Receber;
 
 
-char telaCadastrarChequeRecebido(void) {
+Receber* telaCadastrarChequeRecebido(void) {
     Receber *rec;
     
 	rec = (Receber*) malloc(sizeof(Receber));
@@ -136,10 +136,38 @@ char telaCadastrarChequeRecebido(void) {
 	getchar();
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	free (rec);
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return rec;
+}
+
+void cadastrarChequeRecebido (void) {
+Receber *rec;
+
+/// ler os dados vindos da função telaCadastrarChequeRecebido ///
+rec = telaCadastrarChequeRecebido();
+
+/// gravar os dados vindos da função telaCadastrarChequeRecebido no arquivo de cheques recebidos ///
+gravarDados(rec); 
+
+/// liberar espaço de memoria ///
+free (rec);
+}
+
+
+
+void gravarDados (Receber* rec){
+FILE* arq;
+
+arq = fopen("recebidos.dat","ab");
+if (arq == NULL) {
+printf("///            NÃO FOI POSSIVEL ABRIR O ARQUIVO");
+printf("///            NÃO É POSSIVEL SEGUIR COM O PROGRAMA");
+exit(1);
+}
+fwrite(rec, sizeof(Receber), 1, arq);
+fclose(arq);
 }
 
 

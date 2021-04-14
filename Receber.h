@@ -11,12 +11,18 @@ struct receber{
 	char digitoC[1];
 };
 
+typedef struct receber Receber;
+
 /// Assinatura das funções para o modulo receber cheque ////
 
-char telaCadastrarChequeRecebido(void);
+Receber* telaCadastrarChequeRecebido(void);
 
 char telaConsultarChequeRecebido(void);
 
 char telaAlterarChequeRecebido(void);
 
 char telaExcluirChequeRecebido(void);
+
+void gravarDados (Receber*);
+
+void cadastrarChequeRecebido (void);
