@@ -239,6 +239,49 @@ char* telaAlterarCliente(void) {
 	return CPF;
 }
 
+void alterarCliente (void) {
+	Cliente* clt;
+	char* CPF;
+
+	CPF = telaAlterarCliente();
+	clt = buscarCliente(CPF);
+	if (clt == NULL){
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///             O CHEQUE INFORMADO NÃO EXISTE                             ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	} else {
+		clt = telaCadastrarCliente();
+		strcpy(clt->CPF, CPF);
+		regravarDadosCliente(clt);
+		free(clt);
+	}
+	free(CPF);
+}
+
+void regravarDadosCliente (Cliente* clt){
+int encontrou;
+FILE* arq;
+Cliente* cltlido;
+
+cltlido = (Cliente*) malloc(sizeof(Cliente));
+arq = fopen("clientes.dat", "r+b");
+if (arq == NULL){
+	printf("///   ERRO!!!!!!!!!!  ///");
+	exit(1);
+}
+encontrou = 0;
+while(fread(cltlido, sizeof(Cliente), 1, arq) && !encontrou){
+	if (strcmp(cltlido->CPF, clt->CPF) == 0){
+		encontrou = 1;
+		fseek(arq, -1*sizeof(Cliente), SEEK_CUR);
+		fwrite(clt, sizeof(Cliente), 1, arq);
+	}
+}
+fclose(arq);
+free(cltlido);
+}
+
+
 char* telaExcluirCliente(void) {
 	char* CPF;
 	CPF = (char*) malloc(12*sizeof(char));
@@ -270,4 +313,23 @@ char* telaExcluirCliente(void) {
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 	return CPF;
+}
+
+void excluirCliente (void){
+	Cliente* clt;
+	char *CPF;
+
+	CPF = telaExcluirCliente();
+	clt = (Cliente*) malloc(sizeof(Cliente));
+	clt = buscarCliente(CPF);
+	if (clt == NULL) {
+	printf("///   ERRO!!!!!!!!!!  ///");
+	exit(1);	
+	}
+	else {
+		clt->status = 0;
+		regravarDadosCliente(clt);
+		free (clt);
+	}
+	free(CPF);
 }

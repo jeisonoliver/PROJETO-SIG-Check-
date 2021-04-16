@@ -28,3 +28,9 @@ void consultarCliente (void);
 Cliente* buscarCliente (char*);
 
 void exibirCliente (Cliente*);
+
+void alterarCliente (void);
+
+void regravarDadosCliente (Cliente*);
+
+void excluirCliente (void);
