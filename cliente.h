@@ -8,13 +8,23 @@ char nome[51];
 char email[51];
 char dataNascimento[12];
 char celular[11];
+int status;
 };
 
+void cadastrarCliente (void);
 
-char telaCadastrarCliente(void);
+void gravarDadosCliente (Cliente*);
 
-char telaPesquisarCliente(void);
+Cliente* telaCadastrarCliente(void);
 
-char telaAlterarCliente(void);
+char* telaPesquisarCliente(void);
 
-char telaExcluirCliente(void);
+char* telaAlterarCliente(void);
+
+char* telaExcluirCliente(void);
+
+void consultarCliente (void);
+
+Cliente* buscarCliente (char*);
+
+void exibirCliente (Cliente*);

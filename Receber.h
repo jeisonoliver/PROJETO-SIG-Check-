@@ -9,6 +9,7 @@ struct receber{
 	char dataV[10];
 	char digitoA[1];
 	char digitoC[1];
+	int status;
 };
 
 typedef struct receber Receber;
@@ -17,12 +18,24 @@ typedef struct receber Receber;
 
 Receber* telaCadastrarChequeRecebido(void);
 
-void telaConsultarChequeRecebido(void);
+char* telaConsultarChequeRecebido(void);
 
-void telaAlterarChequeRecebido(void);
+char* telaAlterarChequeRecebido(void);
 
-void telaExcluirChequeRecebido(void);
+char* telaExcluirChequeRecebido(void);
 
 void gravarDados (Receber*);
 
 void cadastrarChequeRecebido (void);
+
+void consultarChequeRecebido (void);
+
+Receber* buscarCheque (char*);
+
+void exibirCheque (Receber*);
+
+void regravarDados (Receber*);
+
+void alterarChequeRecebido (void);
+
+void excluirChequeRecebido (void);

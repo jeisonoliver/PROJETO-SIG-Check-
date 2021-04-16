@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "validacoesUteis.h"
 #include "cliente.h"
 
 typedef struct cliente Cliente;
 
 
-char telaCadastrarCliente(void) {
+Cliente* telaCadastrarCliente(void) {
 	Cliente *clt;
+	clt = (Cliente*) malloc(sizeof(Cliente));
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -25,8 +27,6 @@ char telaCadastrarCliente(void) {
 	printf("///               |           CADASTRAR CLIENTE              |            ///\n");
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///                                                                       ///\n");
-
-	clt = (Cliente*) malloc(sizeof(Cliente));
 	
 	printf("///               CPF (APENAS NUMEROS): ");
 	scanf("%[^\n]", clt->CPF);
@@ -46,7 +46,7 @@ char telaCadastrarCliente(void) {
 	scanf("%[A-Z a-z]", clt->nome);
     getchar();
 
-    while (valNome(clt->nome)){
+    while (!valNome(clt->nome)){
 	printf ("///               Ocorreu um erro\n");
 	printf ("///               O nome Digitado é invalido \n");
 	printf ("///               Insira o seu nome novamente (SEM ACENTOS):\n");
@@ -57,7 +57,7 @@ char telaCadastrarCliente(void) {
     printf("///               O nome %s está correto\n", clt->nome);
 
 	printf("///               E-mail: ");
-	scanf("%[a-z 0-9 @.]", clt->email);
+	scanf("%[\n]", clt->email);
 	getchar();
 
     while (!valEmail(clt->email)){
@@ -75,7 +75,7 @@ char telaCadastrarCliente(void) {
 	getchar();
 
 	printf("///               Celular (APENAS NUMEROS): ");
-	scanf("%[^\n]", clt->celular);
+	scanf("%[0-9]", clt->celular);
 	getchar();
 
     while (!ntelefone(clt->celular)) {
@@ -88,19 +88,46 @@ char telaCadastrarCliente(void) {
 
     printf("///               O numero de telefone %s está correto \n", clt->celular);
 
-	
+	clt->status = 1;
 
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	free (clt);
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return clt;
 }
 
-char telaPesquisarCliente(void){
-	char pesquisarCPF[15];
+void cadastrarCliente (void){
+Cliente *clt;
+
+clt = telaCadastrarCliente();
+
+gravarDadosCliente(clt);
+
+free(clt);
+}
+
+void gravarDadosCliente (Cliente* clt){
+FILE* arq;
+
+arq = fopen("clientes.dat", "ab");
+if (arq == NULL) {
+printf("///            NÃO FOI POSSIVEL ABRIR O ARQUIVO");
+printf("///            NÃO É POSSIVEL SEGUIR COM O PROGRAMA");
+exit(1);
+}
+fwrite(clt, sizeof(Cliente), 1, arq);
+fclose(arq);
+}
+
+
+
+
+char* telaPesquisarCliente(void){
+	char* CPF;
+	CPF = (char*) malloc(12*sizeof(char));
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -119,23 +146,71 @@ char telaPesquisarCliente(void){
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///               INFORME O CPF DO CLIENTE A CONSULTAR:                   ///\n");
 	printf("///               CPF (APENAS NUMEROS): ");
-	scanf("%[0-9 . _ ]", pesquisarCPF);
+	scanf("%[\n]", CPF);
 	getchar();
-	printf("///               Nome:                                                   ///\n");
-	printf("///               E-mail:                                                 ///\n");
-	printf("///               Data de Nascimento:                                     ///\n");
-	printf("///               Celular:                                                ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return CPF;
 }
 
-char telaAlterarCliente(void) {
-	char op;
-	char alterarCPF[15];
+void consultarCliente (void) {
+	Cliente* clt;
+	char* CPF;
+
+	CPF = telaPesquisarCliente();
+	clt = buscarCliente(CPF);
+	exibirCliente(clt);
+	free (clt);
+	free (CPF);
+}
+
+Cliente* buscarCliente (char* CPF){
+	FILE* arq;
+	Cliente* clt;
+
+	clt = (Cliente*) malloc(sizeof(Cliente));
+	arq = fopen("clientes.dat", "rb");
+	if (arq == NULL) {
+    printf(" ERRO!!!! ");
+	exit(1);
+	}
+	while (fread(clt, sizeof(Cliente), 1, arq)){
+    if ((strcmp(clt->CPF, CPF) == 0) && (clt->status == 1)) {
+		fclose(arq);
+		return clt;
+	}
+	}
+	fclose(arq);
+	return NULL;
+}
+
+void exibirCliente (Cliente* clt){
+	if (clt == NULL){
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///             O CHEQUE INFORMADO NÃO EXISTE                             ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	}else{
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                  O CHEQUE ESTÁ CADASTRADO                             ///\n");
+	printf("///                  CPF: %s                                              ///\n", clt->CPF);
+	printf("///                  Nome : %s                                            ///\n", clt->nome);
+	printf("///                  Email: %s                                            ///\n", clt->email);
+	printf("///                  Nascimento: %s                                       ///\n", clt->dataNascimento);
+	printf("///                  N° celular: %s                                       ///\n", clt->celular);
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	}
+}
+
+char* telaAlterarCliente(void) {
+	char* CPF;
+	CPF = (char*) malloc(12*sizeof(char));
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -154,25 +229,19 @@ char telaAlterarCliente(void) {
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///               INFORME O CPF DO CLIENTE QUE DESEJA ALTERAR             ///\n");
 	printf("///               CPF (APENAS NUMEROS): ");
-	scanf("%[0-9 . _ ]", alterarCPF);
-	getchar();
-	printf("///               1. CPF                                                  ///\n");
-	printf("///               2. Nome:                                                ///\n");
-	printf("///               3. E-mail:                                              ///\n");
-	printf("///               4. Data de Nascimento:                                  ///\n");
-	printf("///               5. Celular:                                             ///\n");
-	printf("///               INFORME O NUMERO REFERENTE AO QUE DESEJA ALTERAR ");
-	scanf("%c" , &op);
+	scanf("%[\n]", CPF);
 	getchar();
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return CPF;
 }
 
-char telaExcluirCliente(void) {
-	char cpfExcluir[15];
+char* telaExcluirCliente(void) {
+	char* CPF;
+	CPF = (char*) malloc(12*sizeof(char));
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -192,17 +261,13 @@ char telaExcluirCliente(void) {
 	printf("///                                                                       ///\n");
 	printf("///               INFORME O CPF DO CLIENTE QUE DESEJA EXCLUIR:            ///\n");
 	printf("///               CPF (APENAS NUMEROS): ");
-	scanf("%[0-9 . _ ]",cpfExcluir);
+	scanf("%[\n]",CPF);
 	getchar();
-	printf("///               CONFIRME OS DADOS DO CLIENTE A EXCLUIR:                 ///\n");
-	printf("///               Nome:                                                   ///\n");
-	printf("///               E-mail:                                                 ///\n");
-	printf("///               Data de Nascimento:                                     ///\n");
-	printf("///               Celular:                                                ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return CPF;
 }

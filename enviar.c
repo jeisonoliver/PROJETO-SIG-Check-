@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "validacoesUteis.h"
 #include "enviar.h"
 
@@ -130,6 +131,7 @@ Enviar* telaCadastrarChequeEnviado(void) {
 	printf("///            Data Para Cobrir o Valor do Cheque(vencimento) (DD/MM/AAAA): ");
 	scanf("%[0-9 / ]", env->dataCobrir);
 	getchar();
+	env->status = 1;
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
@@ -163,8 +165,9 @@ fwrite(env, sizeof(Enviar), 1, arq);
 fclose(arq);
 }
 
-void telaConsultarChequeEnviado(void) {
-	char numeroChequeConsulta[5];
+char* telaConsultarChequeEnviado(void) {
+	char* num;
+	num = (char*) malloc(5*sizeof(char));
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -183,7 +186,7 @@ void telaConsultarChequeEnviado(void) {
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///            INFORE O NUMERO DO CHEQUE QUE DESEJA FAZER A CONSULTA:     ///\n");
 	printf("///            Numero do cheque: ");
-	scanf("%[0-9]", numeroChequeConsulta);
+	scanf("%[0-9]", num);
 	getchar();
 	printf("///            OS DADOS DO CHEQUE SÃO:                                    ///\n");
 	printf("///            Banco:                                                     ///\n");
@@ -197,11 +200,65 @@ void telaConsultarChequeEnviado(void) {
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return num;
 }
 
-void telaAlterarChequeEnviado(void) {
-	char op;
-	char numeroChequeAlterar[5];
+void consultarChequeEnviado (void) {
+	Enviar* env;
+	char* num;
+
+	num = telaConsultarChequeEnviado();
+	env = buscarChequeEnviado(num);
+	exibirChequeEnviado(env);
+	free (env);
+	free (num);
+}
+
+Enviar* buscarChequeEnviado (char* num){
+	FILE* arq;
+	Enviar* env;
+
+	env = (Enviar*) malloc(sizeof(Enviar));
+	arq = fopen("enviados.dat", "rb");
+	if (arq == NULL) {
+    printf(" ERRO!!!! ");
+	exit(1);
+	}
+	while (fread(env, sizeof(Enviar), 1, arq)){
+    if ((strcmp(env->numero, num) == 0) && (env->status == 1)) {
+		fclose(arq);
+		return env;
+	}
+	}
+	fclose(arq);
+	return NULL;
+}
+
+void exibirChequeEnviado (Enviar* env){
+	if (env == NULL){
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///             O CHEQUE INFORMADO NÃO EXISTE                             ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	}else{
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                  O CHEQUE ESTÁ CADASTRADO                             ///\n");
+	printf("///                  Numero: %s                                           ///\n", env->numero);
+	printf("///                  Nome do Banco: %s                                    ///\n", env->nomeDoBanco);
+	printf("///                  Agencia: %s-%s                                       ///\n", env->nAgencia,env->digitoA);
+	printf("///                  Conta: %s-%s                                         ///\n", env->nConta,env->digitoC);
+	printf("///                  Valor: %d,%d                                         ///\n", env->Real,env->Centavos);
+	printf("///                  Data de Envio: %s                                    ///\n", env->dataEnvio);
+	printf("///                  Data de Vencimento: %s                               ///\n", env->dataCobrir);
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	}
+}
+
+char* telaAlterarChequeEnviado(void){
+	char* num;
+	num = (char*) malloc(5*sizeof(char));
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -220,26 +277,60 @@ void telaAlterarChequeEnviado(void) {
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///            INFORME O NUMERO DO CHEQUE EM QUE DESEJA FAZER ALTERAÇÕES: ///\n");
 	printf("///            Numero do cheque: ");
-	scanf("%[0-9]", numeroChequeAlterar);
-	getchar();
-	printf("///            1.Numero do Cheque:                                        ///\n");
-	printf("///            2.Banco:                                                   ///\n");
-	printf("///            3.Agencia:                                                 ///\n");
-	printf("///            4.Conta:                                                   ///\n");
-	printf("///            5.Valor do cheque:                                         ///\n");
-	printf("///            6.Data de Deposito:                                        ///\n");
-	printf("///            7.Data de Vencimento:                                      ///\n");
-	printf("///            INFORME O NUMERO REFERENTE AO QUE DESEJA ALTERAR: ");
-	scanf("%c" , &op);
+	scanf("%[0-9]", num);
 	getchar();
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return num;
 }
 
-void telaExcluirChequeEnviado(void) {
-	char numeroChequeExcluir[5];
+void alterarChequeEnviado (void) {
+	Enviar* env;
+	char* num;
+
+	num = telaAlterarChequeEnviado();
+	env = buscarChequeEnviado(num);
+	if (env == NULL){
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///             O CHEQUE INFORMADO NÃO EXISTE                             ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	} else {
+		env = telaCadastrarChequeEnviado();
+		strcpy(env->numero, num);
+		regravarDadosEnviados(env);
+		free(env);
+	}
+	free(num);
+}
+
+void regravarDadosEnviados (Enviar* env){
+int encontrou;
+FILE* arq;
+Enviar* envlido;
+
+envlido = (Enviar*) malloc(sizeof(Enviar));
+arq = fopen("enviados.dat", "r+b");
+if (arq == NULL){
+	printf("///   ERRO!!!!!!!!!!  ///");
+	exit(1);
+}
+encontrou = 0;
+while(fread(envlido, sizeof(Enviar), 1, arq) && !encontrou){
+	if (strcmp(envlido->numero, env->numero) == 0){
+		encontrou = 1;
+		fseek(arq, -1*sizeof(Enviar), SEEK_CUR);
+		fwrite(env, sizeof(Enviar), 1, arq);
+	}
+}
+fclose(arq);
+free(envlido);
+}
+
+char* telaExcluirChequeEnviado(void) {
+	char* num;
+	num = (char*) malloc(5*sizeof(char));
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -258,18 +349,31 @@ void telaExcluirChequeEnviado(void) {
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///            INFORME O NUMERO DO CHEQUE QUE DESEJA EXCLUIR:             ///\n");
 	printf("///            Numero do cheque (EX:0001):");
-	scanf("%[0-9]", numeroChequeExcluir);
+	scanf("%[0-9]", num);
 	getchar();
-	printf("///            CONFIRA OS DADOS DO CHEQUE A EXCLUIR:                      ///\n");
-	printf("///            Banco:                                                     ///\n");
-	printf("///            Agencia:                                                   ///\n");
-	printf("///            Conta:                                                     ///\n");
-	printf("///            Valor do cheque:                                           ///\n");
-	printf("///            Data de Deposito:                                          ///\n");
-	printf("///            Data de Vencimento:                                        ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return num;
+}
+
+void excluirChequeEnviado (void){
+	Enviar* env;
+	char *num;
+
+	num = telaExcluirChequeEnviado();
+	env = (Enviar*) malloc(sizeof(Enviar));
+	env = buscarChequeEnviado(num);
+	if (env == NULL) {
+	printf("///   ERRO!!!!!!!!!!  ///");
+	exit(1);	
+	}
+	else {
+		env->status = 0;
+		regravarDadosEnviados(env);
+		free (env);
+	}
+	free(num);
 }

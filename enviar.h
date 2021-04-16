@@ -11,6 +11,7 @@ struct enviar{
 	int Centavos;
 	char dataEnvio[12];
 	char dataCobrir[12];
+	int status;
 };
 
 
@@ -18,12 +19,24 @@ struct enviar{
 
 Enviar* telaCadastrarChequeEnviado(void);
 
-void telaConsultarChequeEnviado(void);
+char* telaConsultarChequeEnviado(void);
 
-void telaAlterarChequeEnviado(void);
+char* telaAlterarChequeEnviado(void);
 
-void telaExcluirChequeEnviado(void);
+char* telaExcluirChequeEnviado(void);
 
 void cadastrarChequeEnviado (void);
 
 void gravarDadosEnviados (Enviar*);
+
+void consultarChequeEnviado (void);
+
+Enviar* buscarChequeEnviado (char*);
+
+void exibirChequeEnviado (Enviar*);
+
+void alterarChequeEnviado (void);
+
+void regravarDadosEnviados (Enviar*);
+
+void excluirChequeEnviado (void);

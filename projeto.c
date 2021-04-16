@@ -133,9 +133,9 @@ void moduloRecebimento(void){
 		switch (opcao) {
 			case '1' : cadastrarChequeRecebido();
 											   break;
-			case '2' : telaConsultarChequeRecebido();
+			case '2' : consultarChequeRecebido();
 											   break;
-			case '3' : telaAlterarChequeRecebido();
+			case '3' : alterarChequeRecebido();
 											   break;
 			case '4' :  telaExcluirChequeRecebido();
 											   break;
@@ -150,11 +150,11 @@ void moduloEnvio(void){
 		switch (opcao) {
 			case '1' : cadastrarChequeEnviado();
 											   break;
-			case '2' : telaConsultarChequeEnviado();
+			case '2' : consultarChequeEnviado();
 											   break;
-			case '3' : telaAlterarChequeEnviado();
+			case '3' : alterarChequeEnviado();
 											   break;
-			case '4' :  telaExcluirChequeEnviado();
+			case '4' :  excluirChequeEnviado();
 											   break;
 			}
 	} while (opcao != '0');
@@ -165,7 +165,7 @@ void moduloCliente(void){
 	do {
 		opcao = menuCliente();
 		switch (opcao) {
-			case '1' : telaCadastrarCliente();
+			case '1' : cadastrarCliente();
 											   break;
 			case '2' : telaPesquisarCliente();
 											   break;

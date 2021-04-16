@@ -135,6 +135,7 @@ Receber* telaCadastrarChequeRecebido(void) {
 	printf("///            Data de Vencimento do Cheque (DD/MM/AAAA): ");
 	scanf("%[0-9 /]", rec->dataV);
 	getchar();
+	rec->status = 1;
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
@@ -172,8 +173,10 @@ fclose(arq);
 }
 
 
-void telaConsultarChequeRecebido(void) {
-	char nChequeConsulta[5];
+char* telaConsultarChequeRecebido(void) {
+	char* num;
+
+	num = (char*) malloc(5*sizeof(char));
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -192,25 +195,74 @@ void telaConsultarChequeRecebido(void) {
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///            INFORME O NUMERO DO CHEQUE QUE DESEJA FAZER A CONSUTA:     ///\n");
 	printf("///            Numero do cheque: ");
-	scanf("%[0-9]", nChequeConsulta);
+	scanf("%[0-9]", num);
 	getchar();
-	printf("///            OS DADOS DO CHEQUE SÃO:                                    ///\n");
-	printf("///            Banco:                                                     ///\n");
-	printf("///            Agencia:                                                   ///\n");
-	printf("///            Conta:                                                     ///\n");
-	printf("///            Valor do cheque:                                           ///\n");
-	printf("///            Data de Recebimento:                                       ///\n");
-	printf("///            Data de Vencimento:                                        ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return num;
 }
 
-void telaAlterarChequeRecebido(void) {
-	char op;
-	char nChequeAlterar[5];
+void consultarChequeRecebido (void) {
+	Receber* rec;
+	char* num;
+
+	num = telaConsultarChequeRecebido();
+	rec = buscarCheque(num);
+	exibirCheque(rec);
+	free (rec);
+	free (num);
+}
+
+Receber* buscarCheque (char* num){
+	FILE* arq;
+	Receber* rec;
+
+	rec = (Receber*) malloc(sizeof(Receber));
+	arq = fopen("recebidos.dat", "rb");
+	if (arq == NULL) {
+    printf(" ERRO!!!! ");
+	exit(1);
+	}
+	while (fread(rec, sizeof(Receber), 1, arq)){
+    if ((strcmp(rec->numero, num) == 0) && (rec->status == 1)) {
+		fclose(arq);
+		return rec;
+	}
+	}
+	fclose(arq);
+	return NULL;
+}
+
+void exibirCheque (Receber* rec){
+	if (rec == NULL){
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///             O CHEQUE INFORMADO NÃO EXISTE                             ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	}else{
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                  O CHEQUE ESTÁ CADASTRADO                             ///\n");
+	printf("///                  Numero: %s                                           ///\n", rec->numero);
+	printf("///                  Nome do Banco: %s                                    ///\n", rec->nomeBanco);
+	printf("///                  Agencia: %s-%s                                       ///\n", rec->agencia,rec->digitoA);
+	printf("///                  Conta: %s-%s                                         ///\n", rec->numeroConta,rec->digitoC);
+	printf("///                  Valor: %d,%d                                         ///\n", rec->valorReal,rec->valorCentavos);
+	printf("///                  Data de Recebimento: %s                              ///\n", rec->dataR);
+	printf("///                  Data de Vencimento: %s                               ///\n", rec->dataV);
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	}
+
+
+}
+
+char* telaAlterarChequeRecebido(void) {
+	char* num;
+	num = (char*) malloc(5*sizeof(char));
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -229,26 +281,62 @@ void telaAlterarChequeRecebido(void) {
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///            INFORME O NUMERO DO CHEQUE EM QUE DESEJA FAZER ALTERAÇÕES: ///\n");
 	printf("///            Numero do cheque: ");
-	scanf("%[0-9]", nChequeAlterar);
+	scanf("%[0-9]", num);
 	getchar();
-	printf("///            1.Numero do cheque:                                        ///\n");
-	printf("///            2.Banco:                                                   ///\n");
-	printf("///            3.Agencia:                                                 ///\n");
-	printf("///            4.Conta:                                                   ///\n");
-	printf("///            5.Valor do cheque:                                         ///\n");
-	printf("///            6.Data de Recebimento:                                       ///\n");
-	printf("///            7.Data de Vencimento:                                        ///\n");
-	printf("///            INFORME O NUMERO REFERENTE AO QUE DESEJA ALTERAR: ");
-	scanf("%c" , &op);
-	getchar();
+	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return num;
 }
 
-void telaExcluirChequeRecebido(void) {
-	char nChequeExcluir[5];
+void alterarChequeRecebido (void) {
+	Receber* rec;
+	char* num;
+
+	num = telaAlterarChequeRecebido();
+	rec = buscarCheque(num);
+	if (rec == NULL){
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///             O CHEQUE INFORMADO NÃO EXISTE                             ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	} else {
+		rec = telaCadastrarChequeRecebido();
+		strcpy(rec->numero, num);
+		regravarDados(rec);
+		free(rec);
+	}
+	free(num);
+}
+
+void regravarDados (Receber* rec){
+int encontrou;
+FILE* arq;
+Receber* reclido;
+
+reclido = (Receber*) malloc(sizeof(Receber));
+arq = fopen("recebidos.dat", "r+b");
+if (arq == NULL){
+	printf("///   ERRO!!!!!!!!!!  ///");
+	exit(1);
+}
+encontrou = 0;
+while(fread(reclido, sizeof(Receber), 1, arq) && !encontrou){
+	if (strcmp(reclido->numero, rec->numero) == 0){
+		encontrou = 1;
+		fseek(arq, -1*sizeof(Receber), SEEK_CUR);
+		fwrite(rec, sizeof(Receber), 1, arq);
+	}
+}
+fclose(arq);
+free(reclido);
+}
+
+
+char* telaExcluirChequeRecebido(void) {
+	char* num;
+	num = (char*) malloc(5*sizeof(char));
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -267,7 +355,7 @@ void telaExcluirChequeRecebido(void) {
 	printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
 	printf("///            INFORME O NUMERO DO CHEQUE QUE DESEJA EXCLUIR:             ///\n");
 	printf("///            Numero do cheque:(EX: 0001) ");
-	scanf("%[0-9]", nChequeExcluir);
+	scanf("%[0-9]", num);
 	getchar();
 	printf("///            CONFIRA OS DADOS DO CHEQUE A EXCLUIR:                      ///\n");
 	printf("///            Banco:                                                     ///\n");
@@ -281,4 +369,24 @@ void telaExcluirChequeRecebido(void) {
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return num;
+}
+
+void excluirChequeRecebido (void){
+	Receber* rec;
+	char *num;
+
+	num = telaExcluirChequeRecebido();
+	rec = (Receber*) malloc(sizeof(Receber));
+	rec = buscarCheque(num);
+	if (rec == NULL) {
+	printf("///   ERRO!!!!!!!!!!  ///");
+	exit(1);	
+	}
+	else {
+		rec->status = 0;
+		regravarDados(rec);
+		free (rec);
+	}
+	free(num);
 }
