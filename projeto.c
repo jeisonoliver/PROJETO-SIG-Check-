@@ -115,7 +115,7 @@ void telaSobre(void) {
 	printf("///                                                                       ///\n");
 	printf("/// Programa feito para a disciplina DCT1106 - Programação. O presente    ///\n");
 	printf("/// programa tem o objetivo de dar continuidade trabalhos referentes à    ///\n");
-	printf("/// disciplina de programação, este programa é referente a semana 6 do    ///\n");
+	printf("/// disciplina de programação, este programa é referente a semana 13 do   ///\n");
 	printf("/// projeto que terá duração de 15 semanas. O projeto de nome SIG-Check   ///\n");
 	printf("/// tem como objetivo realizar o cadastro e o acompanhamento de cheques   ///\n");
  	printf("/// pré-datados, auxiliando o controle financeiro da empresa.             ///\n");
@@ -137,7 +137,7 @@ void moduloRecebimento(void){
 											   break;
 			case '3' : alterarChequeRecebido();
 											   break;
-			case '4' :  telaExcluirChequeRecebido();
+			case '4' : excluirChequeRecebido();
 											   break;
 			}
 	} while (opcao != '0');
