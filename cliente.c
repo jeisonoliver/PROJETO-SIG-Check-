@@ -191,11 +191,11 @@ Cliente* buscarCliente (char* CPF){
 void exibirCliente (Cliente* clt){
 	if (clt == NULL){
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///             O CHEQUE INFORMADO NÃO EXISTE                             ///\n");
+	printf("///             O CLIENTE INFORMADO NÃO EXISTE                            ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	}else{
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                  O CHEQUE ESTÁ CADASTRADO                             ///\n");
+	printf("///                  O CLIENTE ESTÁ CADASTRADO                            ///\n");
 	printf("///                  CPF: %s                                              ///\n", clt->CPF);
 	printf("///                  Nome : %s                                            ///\n", clt->nome);
 	printf("///                  Email: %s                                            ///\n", clt->email);
@@ -247,7 +247,7 @@ void alterarCliente (void) {
 	clt = buscarCliente(CPF);
 	if (clt == NULL){
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///             O CHEQUE INFORMADO NÃO EXISTE                             ///\n");
+	printf("///             O CLIENTE INFORMADO NÃO EXISTE                             ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	} else {
 		clt = telaCadastrarCliente();

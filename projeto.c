@@ -167,11 +167,11 @@ void moduloCliente(void){
 		switch (opcao) {
 			case '1' : cadastrarCliente();
 											   break;
-			case '2' : telaPesquisarCliente();
+			case '2' : consultarCliente();
 											   break;
-			case '3' : telaAlterarCliente();
+			case '3' : alterarCliente();
 											   break;
-			case '4' : telaExcluirCliente();
+			case '4' : excluirCliente();
 											   break;
 			}
 	} while (opcao != '0');
