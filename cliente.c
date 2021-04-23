@@ -146,7 +146,7 @@ char* telaPesquisarCliente(void){
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///               INFORME O CPF DO CLIENTE A CONSULTAR:                   ///\n");
 	printf("///               CPF (APENAS NUMEROS): ");
-	scanf("%[\n]", CPF);
+	scanf("%[0-9]", CPF);
 	getchar();
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
@@ -229,7 +229,7 @@ char* telaAlterarCliente(void) {
 	printf("///               ||||||||||||||||||||||||||||||||||||||||||||            ///\n");
 	printf("///               INFORME O CPF DO CLIENTE QUE DESEJA ALTERAR             ///\n");
 	printf("///               CPF (APENAS NUMEROS): ");
-	scanf("%[\n]", CPF);
+	scanf("%[0-9]", CPF);
 	getchar();
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -304,7 +304,7 @@ char* telaExcluirCliente(void) {
 	printf("///                                                                       ///\n");
 	printf("///               INFORME O CPF DO CLIENTE QUE DESEJA EXCLUIR:            ///\n");
 	printf("///               CPF (APENAS NUMEROS): ");
-	scanf("%[\n]",CPF);
+	scanf("%[0-9]",CPF);
 	getchar();
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
