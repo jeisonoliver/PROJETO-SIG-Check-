@@ -148,6 +148,16 @@ char* telaPesquisarCliente(void){
 	printf("///               CPF (APENAS NUMEROS): ");
 	scanf("%[0-9]", CPF);
 	getchar();
+
+	while (!valCPF(CPF)) {
+    printf ("///               Ocorreu um erro\n");
+    printf ("///               O CPF Digitado é invalido \n");
+    printf ("///               Insira o CPF novamente:\n");
+    scanf("%[^\n]", CPF);
+	getchar();
+    }
+
+    printf("///               O CPF: %s está correto!\n" , CPF);
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -231,6 +241,16 @@ char* telaAlterarCliente(void) {
 	printf("///               CPF (APENAS NUMEROS): ");
 	scanf("%[0-9]", CPF);
 	getchar();
+
+	while (!valCPF(CPF)) {
+    printf ("///               Ocorreu um erro\n");
+    printf ("///               O CPF Digitado é invalido \n");
+    printf ("///               Insira o CPF novamente:\n");
+    scanf("%[^\n]", CPF);
+	getchar();
+    }
+
+    printf("///               O CPF: %s está correto!\n" , CPF);
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
@@ -306,6 +326,16 @@ char* telaExcluirCliente(void) {
 	printf("///               CPF (APENAS NUMEROS): ");
 	scanf("%[0-9]",CPF);
 	getchar();
+
+	while (!valCPF(CPF)) {
+    printf ("///               Ocorreu um erro\n");
+    printf ("///               O CPF Digitado é invalido \n");
+    printf ("///               Insira o CPF novamente:\n");
+    scanf("%[^\n]",CPF);
+	getchar();
+    }
+
+    printf("///               O CPF: %s está correto!\n" , CPF);
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");

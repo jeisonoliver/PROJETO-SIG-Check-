@@ -188,13 +188,16 @@ char* telaConsultarChequeEnviado(void) {
 	printf("///            Numero do cheque: ");
 	scanf("%[0-9]", num);
 	getchar();
-	printf("///            OS DADOS DO CHEQUE SÃO:                                    ///\n");
-	printf("///            Banco:                                                     ///\n");
-	printf("///            Agencia:                                                   ///\n");
-	printf("///            Conta:                                                     ///\n");
-	printf("///            Valor do cheque:                                           ///\n");
-	printf("///            Data de Deposito:                                          ///\n");
-	printf("///            Data de Vencimento:                                        ///\n");
+
+	while (!Vnumero(num)) {
+    printf("///               O numero informado é inválido!\n");
+    printf("///               Tente novamente...\n");
+    printf("///               Digite o numero do cheque novamente: ");
+    scanf("%[^\n]", num);
+    getchar();
+    }
+
+    printf("///               O numero %s é valido!\n", num);
 	printf("///                                                                       ///\n"); 
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
@@ -279,6 +282,16 @@ char* telaAlterarChequeEnviado(void){
 	printf("///            Numero do cheque: ");
 	scanf("%[0-9]", num);
 	getchar();
+
+	while (!Vnumero(num)) {
+    printf("///               O numero informado é inválido!\n");
+    printf("///               Tente novamente...\n");
+    printf("///               Digite o numero do cheque novamente: ");
+    scanf("%[^\n]", num);
+    getchar();
+    }
+
+    printf("///               O numero %s é valido!\n", num);
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -351,6 +364,16 @@ char* telaExcluirChequeEnviado(void) {
 	printf("///            Numero do cheque (EX:0001):");
 	scanf("%[0-9]", num);
 	getchar();
+
+	while (!Vnumero(num)) {
+    printf("///               O numero informado é inválido!\n");
+    printf("///               Tente novamente...\n");
+    printf("///               Digite o numero do cheque novamente: ");
+    scanf("%[^\n]", num);
+    getchar();
+    }
+
+    printf("///               O numero %s é valido!\n", num);
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
