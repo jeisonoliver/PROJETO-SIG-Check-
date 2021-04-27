@@ -32,43 +32,43 @@ Cliente* telaCadastrarCliente(void) {
 	scanf("%[^\n]", clt->CPF);
 	getchar();
 
-    while (!valCPF(clt->CPF)) {
-    printf ("///               Ocorreu um erro\n");
-    printf ("///               O CPF Digitado é invalido \n");
-    printf ("///               Insira o CPF novamente:\n");
-    scanf("%[^\n]", clt->CPF);
-	getchar();
-    }
+    	while (!valCPF(clt->CPF)) {
+    		printf ("///               Ocorreu um erro\n");
+    		printf ("///               O CPF Digitado é invalido \n");
+    		printf ("///               Insira o CPF novamente:\n");
+    		scanf("%[^\n]", clt->CPF);
+			getchar();
+    	}
 
-    printf("///               O CPF: %s está correto!\n" , clt->CPF);
+    	printf("///               O CPF: %s está correto!\n" , clt->CPF);
 
 	printf("///               Nome: (SEM ACENTOS) ");
 	scanf("%[A-Z a-z]", clt->nome);
     getchar();
 
-    while (!valNome(clt->nome)){
-	printf ("///               Ocorreu um erro\n");
-	printf ("///               O nome Digitado é invalido \n");
-	printf ("///               Insira o seu nome novamente (SEM ACENTOS):\n");
-	scanf("%[^\n]", clt->nome);
-	getchar();
-	}
+    	while (!valNome(clt->nome)){
+			printf ("///               Ocorreu um erro\n");
+			printf ("///               O nome Digitado é invalido \n");
+			printf ("///               Insira o seu nome novamente (SEM ACENTOS):\n");
+			scanf("%[^\n]", clt->nome);
+			getchar();
+		}
 
-    printf("///               O nome %s está correto\n", clt->nome);
+    	printf("///               O nome %s está correto\n", clt->nome);
 
 	printf("///               E-mail: ");
 	scanf("%[\n]", clt->email);
 	getchar();
 
-    while (!valEmail(clt->email)){
-	printf ("///               Ocorreu um erro\n");
-    printf ("///               O email Digitado é invalido \n");
-    printf ("///               Insira seu email novamente:\n");	
-	scanf("%[^\n]", clt->email);
-	getchar();
-	}
+    	while (!valEmail(clt->email)){
+			printf ("///               Ocorreu um erro\n");
+    		printf ("///               O email Digitado é invalido \n");
+    		printf ("///               Insira seu email novamente:\n");	
+			scanf("%[^\n]", clt->email);
+			getchar();
+		}
 
-    printf("///               O email: %s está correto!\n" , clt->email);
+    	printf("///               O email: %s está correto!\n" , clt->email);
 
 	printf("///               Data de Nascimento (DD / MM / AAAA): ");
 	scanf("%[0-9 /]", clt->dataNascimento);
@@ -78,15 +78,15 @@ Cliente* telaCadastrarCliente(void) {
 	scanf("%[0-9]", clt->celular);
 	getchar();
 
-    while (!ntelefone(clt->celular)) {
-    printf("///               O numero informado é inválido!\n");
-    printf("///               Tente novamente...\n");
-    printf("///               Digite seu numero de celular novamente: ");
-    scanf("%[^\n]", clt->celular);
-    getchar();
-    }
+    	while (!ntelefone(clt->celular)) {
+    		printf("///               O numero informado é inválido!\n");
+    		printf("///               Tente novamente...\n");
+    		printf("///               Digite seu numero de celular novamente: ");
+    		scanf("%[^\n]", clt->celular);
+    		getchar();
+    	}
 
-    printf("///               O numero de telefone %s está correto \n", clt->celular);
+    	printf("///               O numero de telefone %s está correto \n", clt->celular);
 
 	clt->status = 1;
 
@@ -113,11 +113,11 @@ void gravarDadosCliente (Cliente* clt){
 FILE* arq;
 
 arq = fopen("clientes.dat", "ab");
-if (arq == NULL) {
-printf("///            NÃO FOI POSSIVEL ABRIR O ARQUIVO");
-printf("///            NÃO É POSSIVEL SEGUIR COM O PROGRAMA");
-exit(1);
-}
+	if (arq == NULL) {
+		printf("///            NÃO FOI POSSIVEL ABRIR O ARQUIVO");
+		printf("///            NÃO É POSSIVEL SEGUIR COM O PROGRAMA");
+	exit(1);
+	}
 fwrite(clt, sizeof(Cliente), 1, arq);
 fclose(arq);
 }
@@ -149,13 +149,13 @@ char* telaPesquisarCliente(void){
 	scanf("%[0-9]", CPF);
 	getchar();
 
-	while (!valCPF(CPF)) {
-    printf ("///               Ocorreu um erro\n");
-    printf ("///               O CPF Digitado é invalido \n");
-    printf ("///               Insira o CPF novamente:\n");
-    scanf("%[^\n]", CPF);
-	getchar();
-    }
+		while (!valCPF(CPF)) {
+    		printf ("///               Ocorreu um erro\n");
+    		printf ("///               O CPF Digitado é invalido \n");
+    		printf ("///               Insira o CPF novamente:\n");
+    		scanf("%[^\n]", CPF);
+			getchar();
+    	}
 
     printf("///               O CPF: %s está correto!\n" , CPF);
 	printf("///                                                                       ///\n");
@@ -184,37 +184,38 @@ Cliente* buscarCliente (char* CPF){
 
 	clt = (Cliente*) malloc(sizeof(Cliente));
 	arq = fopen("clientes.dat", "rb");
-	if (arq == NULL) {
-    printf(" ERRO!!!! ");
-	exit(1);
-	}
-	while (fread(clt, sizeof(Cliente), 1, arq)){
-    if ((strcmp(clt->CPF, CPF) == 0) && (clt->status == 1)) {
-		fclose(arq);
-		return clt;
-	}
-	}
+		if (arq == NULL) {
+    		printf(" ERRO!!!! ");
+			exit(1);
+		}
+		while (fread(clt, sizeof(Cliente), 1, arq)){
+    		if ((strcmp(clt->CPF, CPF) == 0) && (clt->status == 1)) {
+				fclose(arq);
+				return clt;
+			}
+		}
 	fclose(arq);
 	return NULL;
 }
 
 void exibirCliente (Cliente* clt){
 	if (clt == NULL){
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///             O CLIENTE INFORMADO NÃO EXISTE                            ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	}else{
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                  O CLIENTE ESTÁ CADASTRADO                            ///\n");
-	printf("///                  CPF: %s                                              ///\n", clt->CPF);
-	printf("///                  Nome : %s                                            ///\n", clt->nome);
-	printf("///                  Email: %s                                            ///\n", clt->email);
-	printf("///                  Nascimento: %s                                       ///\n", clt->dataNascimento);
-	printf("///                  N° celular: %s                                       ///\n", clt->celular);
-	printf("\n");
-	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
+		printf("/////////////////////////////////////////////////////////////////////////////\n");
+		printf("///             O CLIENTE INFORMADO NÃO EXISTE                            ///\n");
+		printf("/////////////////////////////////////////////////////////////////////////////\n");
+	}
+	else{
+		printf("/////////////////////////////////////////////////////////////////////////////\n");
+		printf("///                  O CLIENTE ESTÁ CADASTRADO                            ///\n");
+		printf("///                  CPF: %s                                              ///\n", clt->CPF);
+		printf("///                  Nome : %s                                            ///\n", clt->nome);
+		printf("///                  Email: %s                                            ///\n", clt->email);
+		printf("///                  Nascimento: %s                                       ///\n", clt->dataNascimento);
+		printf("///                  N° celular: %s                                       ///\n", clt->celular);
+		printf("\n");
+		printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+		getchar();
+		printf("/////////////////////////////////////////////////////////////////////////////\n");
 	}
 }
 
@@ -242,13 +243,13 @@ char* telaAlterarCliente(void) {
 	scanf("%[0-9]", CPF);
 	getchar();
 
-	while (!valCPF(CPF)) {
-    printf ("///               Ocorreu um erro\n");
-    printf ("///               O CPF Digitado é invalido \n");
-    printf ("///               Insira o CPF novamente:\n");
-    scanf("%[^\n]", CPF);
-	getchar();
-    }
+		while (!valCPF(CPF)) {
+    		printf ("///               Ocorreu um erro\n");
+    		printf ("///               O CPF Digitado é invalido \n");
+    		printf ("///               Insira o CPF novamente:\n");
+    		scanf("%[^\n]", CPF);
+			getchar();
+    	}
 
     printf("///               O CPF: %s está correto!\n" , CPF);
 	printf("///                                                                       ///\n");
@@ -266,9 +267,9 @@ void alterarCliente (void) {
 	CPF = telaAlterarCliente();
 	clt = buscarCliente(CPF);
 	if (clt == NULL){
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///             O CLIENTE INFORMADO NÃO EXISTE                             ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
+		printf("/////////////////////////////////////////////////////////////////////////////\n");
+		printf("///             O CLIENTE INFORMADO NÃO EXISTE                             ///\n");
+		printf("/////////////////////////////////////////////////////////////////////////////\n");
 	} else {
 		clt = telaCadastrarCliente();
 		strcpy(clt->CPF, CPF);
@@ -285,18 +286,18 @@ Cliente* cltlido;
 
 cltlido = (Cliente*) malloc(sizeof(Cliente));
 arq = fopen("clientes.dat", "r+b");
-if (arq == NULL){
-	printf("///   ERRO!!!!!!!!!!  ///");
-	exit(1);
-}
-encontrou = 0;
-while(fread(cltlido, sizeof(Cliente), 1, arq) && !encontrou){
-	if (strcmp(cltlido->CPF, clt->CPF) == 0){
-		encontrou = 1;
-		fseek(arq, -1*sizeof(Cliente), SEEK_CUR);
-		fwrite(clt, sizeof(Cliente), 1, arq);
+	if (arq == NULL){
+		printf("///   ERRO!!!!!!!!!!  ///");
+		exit(1);
 	}
-}
+encontrou = 0;
+	while(fread(cltlido, sizeof(Cliente), 1, arq) && !encontrou){
+		if (strcmp(cltlido->CPF, clt->CPF) == 0){
+			encontrou = 1;
+			fseek(arq, -1*sizeof(Cliente), SEEK_CUR);
+			fwrite(clt, sizeof(Cliente), 1, arq);
+		}
+	}
 fclose(arq);
 free(cltlido);
 }
@@ -327,13 +328,13 @@ char* telaExcluirCliente(void) {
 	scanf("%[0-9]",CPF);
 	getchar();
 
-	while (!valCPF(CPF)) {
-    printf ("///               Ocorreu um erro\n");
-    printf ("///               O CPF Digitado é invalido \n");
-    printf ("///               Insira o CPF novamente:\n");
-    scanf("%[^\n]",CPF);
-	getchar();
-    }
+		while (!valCPF(CPF)) {
+    		printf ("///               Ocorreu um erro\n");
+    		printf ("///               O CPF Digitado é invalido \n");
+    		printf ("///               Insira o CPF novamente:\n");
+    		scanf("%[^\n]",CPF);
+			getchar();
+    	}
 
     printf("///               O CPF: %s está correto!\n" , CPF);
 	printf("///                                                                       ///\n");
@@ -352,14 +353,14 @@ void excluirCliente (void){
 	CPF = telaExcluirCliente();
 	clt = (Cliente*) malloc(sizeof(Cliente));
 	clt = buscarCliente(CPF);
-	if (clt == NULL) {
-	printf("///   ERRO!!!!!!!!!!  ///");
-	exit(1);	
-	}
-	else {
-		clt->status = 0;
-		regravarDadosCliente(clt);
-		free (clt);
-	}
+		if (clt == NULL) {
+			printf("///   ERRO!!!!!!!!!!  ///");
+			exit(1);	
+		}
+		else {
+			clt->status = 0;
+			regravarDadosCliente(clt);
+			free (clt);
+		}
 	free(CPF);
 }

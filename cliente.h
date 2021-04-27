@@ -3,11 +3,11 @@ typedef struct cliente Cliente;
 
 
 struct cliente {
-char CPF[11];
+char CPF[12];
 char nome[51];
 char email[51];
 char dataNascimento[12];
-char celular[11];
+char celular[12];
 int status;
 };
 
