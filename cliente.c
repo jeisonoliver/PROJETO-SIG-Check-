@@ -57,7 +57,7 @@ Cliente* telaCadastrarCliente(void) {
     	printf("///               O nome %s está correto\n", clt->nome);
 
 	printf("///               E-mail: ");
-	scanf("%[\n]", clt->email);
+	scanf("%[A-Z a-z . @]", clt->email);
 	getchar();
 
     	while (!valEmail(clt->email)){
