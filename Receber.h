@@ -1,14 +1,14 @@
 struct receber{	
 	char numero[5];
-	char nomeBanco[30];
-	char agencia[5];
+	char nomeBanco[51];
+	char agencia[10];
 	char numeroConta[12];
 	int valorReal;
 	int valorCentavos;
-	char dataR[10];
-	char dataV[10];
-	char digitoA[1];
-	char digitoC[1];
+	char dataR[12];
+	char dataV[12];
+	char digitoA[2];
+	char digitoC[2];
 	int status;
 };
 

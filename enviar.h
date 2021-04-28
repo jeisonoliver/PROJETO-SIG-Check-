@@ -2,11 +2,11 @@ typedef struct enviar Enviar;
 
 struct enviar{
 	char numero[5];
-	char nomeDoBanco[30];
+	char nomeDoBanco[51];
 	char nAgencia[10];
-	char digitoA[1];
-	char nConta[10];
-	char digitoC[1];
+	char digitoA[2];
+	char nConta[12];
+	char digitoC[2];
 	int Real;
 	int Centavos;
 	char dataEnvio[12];
