@@ -1,3 +1,19 @@
+typedef struct enviado Enviado;
+
+struct enviado{
+	char numero[5];
+	char nomeDoBanco[51];
+	char nAgencia[10];
+	char digitoA[2];
+	char nConta[12];
+	char digitoC[2];
+	int Real;
+	int Centavos;
+	char dataEnvio[12];
+	char dataCobrir[12];
+	int status;
+};
+
 struct recebido{	
 	char numero[5];
 	char nomeBanco[51];
@@ -10,22 +26,29 @@ struct recebido{
 	char digitoA[2];
 	char digitoC[2];
 	int status;
-    struct recebido *prox;
 };
 
 typedef struct recebido Recebido;
 
-void telaRealtorio1(void);
 
-void telaRealtorio2(void);
+////////////////////// RELATORIO DE CHEQUES ENVIADOS A PARTIR DE SEU VENCIMENTO /////////////////////////////
+char* TelaListaChequesEnviadosPorVencimento(void);
+void listaChequesEnviadosPorVencimento(char* data);
+void chequesEnviadosPorVencimento (void);
 
-void telaRealtorio3(void);
 
-void telaRealtorio4(void);
+////////////////////// RELATORIO DE CHEQUES RECEBIDOS A PARTIR DE SEU VENCIMENTO /////////////////////////////
 
-void gerarRelatorio(Recebido **listaRec);
+char* TelaListaChequesRecebidosPorVencimento(void);
+void listaChequesRecebidosPorVencimento(char* data);
+void chequesRecebidosPorVencimento (void);
 
-void apagarLista(Recebido **listaRec);
 
-void exibirLista(Recebido *aux);
+
+
+
+
+
+
+
 

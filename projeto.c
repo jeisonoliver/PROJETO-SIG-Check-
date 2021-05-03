@@ -183,13 +183,9 @@ void moduloRelatorios(void){
 	do {
 		opcao = menuRelatorios();
 		switch (opcao) {
-			case '1' : telaRealtorio1();
+			case '1' : chequesEnviadosPorVencimento();
 											   break;
-			case '2' : telaRealtorio2();
-											   break;
-			case '3' : telaRealtorio3();
-											   break;
-			case '4' : telaRealtorio4();
+			case '2' : chequesRecebidosPorVencimento();
 											   break;
 			}
 	} while (opcao != '0');
