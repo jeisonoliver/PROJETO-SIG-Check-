@@ -14,6 +14,18 @@ struct enviado{
 	int status;
 };
 
+typedef struct clientes Clientes;
+
+
+struct clientes {
+char CPF[12];
+char nome[51];
+char email[51];
+char dataNascimento[12];
+char celular[12];
+int status;
+};
+
 struct recebido{	
 	char numero[5];
 	char nomeBanco[51];
@@ -42,6 +54,10 @@ void chequesEnviadosPorVencimento (void);
 char* TelaListaChequesRecebidosPorVencimento(void);
 void listaChequesRecebidosPorVencimento(char* data);
 void chequesRecebidosPorVencimento (void);
+
+////////////////////// RELATORIO DE CLIENTES CADASTRADOS /////////////////////////////
+
+void criarListaDeClientes(void);
 
 
 

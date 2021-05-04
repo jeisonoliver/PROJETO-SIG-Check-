@@ -3,7 +3,10 @@
 #include <string.h>
 #include "relatorios.h"
 
+/////////////////////  RELATORIO DE CHEQUES ENVIADOS A PARTIR DA DATA DE SEU VENCIMENTO ///////////////
+typedef struct recebido Recebido;
 typedef struct enviado Enviado;
+typedef struct clientes Clientes;
 
 void chequesEnviadosPorVencimento (void){
 	char* data;
@@ -71,7 +74,7 @@ void listaChequesEnviadosPorVencimento(char* data) {
 		printf("///            numero: ||  conta: ||  valor: || nome:                     ///\n");
     		while (fread(env, sizeof(Enviado), 1, arq)) {
         		if (strcmp(env->dataCobrir, data) == 0) {
-            	printf("///               %s   ||  %s-%s  ||  %d,%d  ||  %s                       ///\n", env->numero, env->nConta, env->digitoC, env->Real, env->Centavos, env->nomeDoBanco );
+            	printf("///             %s   ||  %s-%s  ||  %d,%d  ||  %s                     ///\n", env->numero, env->nConta, env->digitoC, env->Real, env->Centavos, env->nomeDoBanco );
         	}
     	}
 		printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -84,7 +87,7 @@ void listaChequesEnviadosPorVencimento(char* data) {
 
 
 
-
+/////////////////////  RELATORIO DE CHEQUES RECEBIDOS A PARTIR DA DATA DE SEU VENCIMENTO ///////////////
 
 
 
@@ -154,7 +157,7 @@ void listaChequesRecebidosPorVencimento(char* data) {
 		printf("///            numero: ||  conta: ||  valor: || nome:                     ///\n");
     		while (fread(rec, sizeof(Recebido), 1, arq)) {
         		if (strcmp(rec->dataV, data) == 0) {
-            	printf("///               %s   ||  %s-%s  ||  %d,%d  ||  %s                       ///\n", rec->numero, rec->numeroConta, rec->digitoC, rec->valorReal, rec->valorCentavos, rec->nomeBanco );
+            	printf("///             %s   ||  %s-%s  ||  %d,%d  ||  %s                     ///\n", rec->numero, rec->numeroConta, rec->digitoC, rec->valorReal, rec->valorCentavos, rec->nomeBanco );
         	}
     	}
 		printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -164,3 +167,41 @@ void listaChequesRecebidosPorVencimento(char* data) {
     fclose(arq);
     free(rec);
 }
+
+/////////////////////  RELATORIO LISTAGEM DE CLIENTES CADASTRADOS ///////////////
+
+
+void criarListaDeClientes(void) {
+    FILE* arq;
+    Clientes *clt;
+
+    clt = (Clientes*) malloc(sizeof(Clientes));
+    arq = fopen("clientes.dat", "rb");
+		printf("/////////////////////////////////////////////////////////////////////////////\n");
+		printf("///                                                                       ///\n");
+		printf("///             ||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+		printf("///             | Sistema de Controle de Cheques Recebidos |              ///\n");
+		printf("///             |            SISTEMA SIG-CHECK             |              ///\n");
+		printf("///             ||||||||||||||||||||||||||||||||||||||||||||              ///\n");
+		printf("///                                                                       ///\n");
+		printf("///                Developed by  @jeisonoliver - Jan, 2021                ///\n");
+		printf("///                                                                       ///\n");
+		printf("/////////////////////////////////////////////////////////////////////////////\n");
+		printf("///                                                                       ///\n");
+		printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
+		printf("///            |    LISTAGEM DE CLIENTES CADASTRADOS      |               ///\n");
+		printf("///            ||||||||||||||||||||||||||||||||||||||||||||               ///\n");
+		printf("///                                                                       ///\n");
+		printf("///                                                                       ///\n");
+		printf("///         CPF: ||  nome: ||  e-mail: || nascimento: || contato:         ///\n");
+    		while (fread(clt, sizeof(Clientes), 1, arq)) {
+            	printf("///         %s  ||  %s  ||  %s  ||  %s  ||  %s                   ///\n", clt->CPF, clt->nome, clt->email, clt->dataNascimento, clt->celular );
+    	}
+		printf("/////////////////////////////////////////////////////////////////////////////\n");
+		printf("\n");
+		printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+		getchar();
+    fclose(arq);
+    free(clt);
+}
+

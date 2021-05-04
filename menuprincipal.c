@@ -134,10 +134,10 @@ char menuRelatorios(void) {
 	printf("///            |             MODULO RELATORIOS             |              ///\n");
 	printf("///            |||||||||||||||||||||||||||||||||||||||||||||              ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           1. Relatorio 1.                                             ///\n");
-	printf("///           2. Relatorio 2.                                             ///\n");
-	printf("///           3. Relatorio 3.                                             ///\n");
-	printf("///           4. Relatorio 4.                                             ///\n");
+	printf("///           1. RELATORIO DE CHEQUES ENVIADOS PELA DATA DE VENCIMENTO    ///\n");
+	printf("///           2. RELATORIO DE CHEQUES RECEBIDOS PELA DATA DE VENCIMENTO   ///\n");
+	printf("///           3. LISTA DE CLIENTES CADASTRADOS                            ///\n");
+	printf("///                                                                       ///\n");
 	printf("///           0. Voltar ao menu anterior                                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada: ");
